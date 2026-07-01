@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Brand tokens as CSS variables (mirror of src/config/brand.ts)       */
+/* ------------------------------------------------------------------ */
+:root {
+  --color-graphite: #1e2329;
+  --color-graphite-900: #14181c;
+  --color-graphite-700: #282e36;
+  --color-graphite-600: #333a44;
+  --color-graphite-500: #3f4752;
+  --color-hivis: #d3ff00;
+  --color-hivis-dark: #b8e000;
+  --color-amber: #f79a1b;
+  --color-smoke: #f4f4f1;
+  --color-steel: #6b7280;
+
+  --font-barlow: "Barlow Condensed", "Oswald", system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+
+  --rule: 3px;
+  --maxw: 1200px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  * {
+    border-color: var(--color-graphite-600);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-graphite);
+    color: var(--color-smoke);
+    font-family: var(--font-inter);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-barlow);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users */
+  :focus-visible {
+    outline: 3px solid var(--color-hivis);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-hivis);
+    color: var(--color-graphite);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reusable industrial utilities                                       */
+/* ------------------------------------------------------------------ */
+@layer components {
+  /* Content container */
+  .container-x {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-x { padding-inline: 2rem; }
+  }
+
+  /* Thick hi-vis divider rule, truck-graphic style */
+  .rule-hivis {
+    height: var(--rule);
+    width: 3.5rem;
+    background: var(--color-hivis);
+    border-radius: 2px;
+  }
+
+  /* Uppercase condensed eyebrow label */
+  .eyebrow {
+    font-family: var(--font-barlow);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: var(--color-hivis);
+  }
+
+  /* Subtle plate-grid background texture (CSS only) */
+  .bg-plate {
+    background-color: var(--color-graphite);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Hazard stripe band (used very sparingly) */
+  .band-hazard {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--color-hivis) 0,
+      var(--color-hivis) 14px,
+      var(--color-graphite-900) 14px,
+      var(--color-graphite-900) 28px
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Rogers Hydraulic & Equipment Services",
+  "short_name": "Rogers Hydraulic",
+  "description": "Mobile hydraulic hose repair, equipment field service, trailer repair, and after-hours repair serving Madison County, Brazos County, and surrounding East Texas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1E2329",
+  "theme_color": "#1E2329",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
