@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { LogoTextLockup } from "./LogoTextLockup";
 import { PhoneButton } from "./PhoneButton";
 import { Icon } from "./Icon";
+import { business } from "@/config/business";
 
 const NAV = [
   { label: "Services", href: "/services" },
@@ -54,15 +55,24 @@ export function Header() {
           <PhoneButton />
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-graphite-600 text-smoke lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
+        {/* Mobile actions: easy-tap Call + menu */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={business.phoneHref}
+            className="inline-flex h-11 items-center gap-2 rounded-sm bg-hivis px-4 font-heading text-base font-bold uppercase tracking-stencil text-graphite"
+            aria-label={`Call ${business.phone}`}
+          >
+            <Icon name="phone" size={18} />
+            Call
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-graphite-600 text-smoke"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           {open ? (
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
@@ -73,7 +83,8 @@ export function Header() {
               <path d="M4 7h16M4 12h16M4 17h16" />
             </svg>
           )}
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

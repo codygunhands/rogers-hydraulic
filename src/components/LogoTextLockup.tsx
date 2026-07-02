@@ -69,9 +69,9 @@ export function LogoTextLockup({
     >
       <span
         className="font-heading font-bold uppercase leading-none"
-        style={{ fontSize: size, letterSpacing: "0.02em", color: t.rogers }}
+        style={{ fontSize: size, letterSpacing: "0.02em", color: t.rogers, marginRight: "0.3em" }}
       >
-        Rogers{" "}
+        Rogers
       </span>
       <span
         className="font-heading font-bold uppercase leading-none"

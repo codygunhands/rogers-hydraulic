@@ -25,7 +25,7 @@ export function EmergencyCTA({
         </div>
         <div className="w-full shrink-0 md:w-auto">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <PhoneButton size="lg" className="w-full sm:w-auto" />
+            <PhoneButton size="lg" label="Call Now" className="w-full sm:w-auto" />
             <TextPhotosButton size="lg" variant="secondary" className="w-full sm:w-auto" />
           </div>
           <p className="mt-3 text-center font-body text-sm text-steel md:text-right">

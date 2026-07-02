@@ -4,8 +4,7 @@ export const services: Service[] = [
   {
     slug: "mobile-hydraulic-hose-repair",
     name: "Mobile Hydraulic Hose Repair",
-    blurb:
-      "Blown or leaking hydraulic hoses replaced on-site when the correct hose, fittings, and access allow.",
+    blurb: "On-site hose replacement when parts, fittings, and access allow.",
     icon: "hose",
     seoTitle: "Mobile Hydraulic Hose Repair in Madisonville, TX | Rogers Hydraulic",
     metaDescription:
@@ -76,7 +75,7 @@ export const services: Service[] = [
     slug: "equipment-field-service",
     name: "Equipment Field Service",
     blurb:
-      "On-site hydraulic troubleshooting and equipment repair so machines get fixed where they sit.",
+      "Hydraulic leaks, weak function, fittings, cylinders, and machine issues checked at the jobsite.",
     icon: "wrench",
     seoTitle: "Equipment Field Service & Hydraulic Repair | Rogers Hydraulic, East Texas",
     metaDescription:
@@ -140,7 +139,7 @@ export const services: Service[] = [
     slug: "after-hours-repair",
     name: "After-Hours Repair",
     blurb:
-      "Emergency and after-hours field calls accepted when equipment goes down outside normal hours.",
+      "Emergency and after-hours calls accepted when equipment goes down outside normal hours.",
     icon: "clock",
     seoTitle: "After-Hours & Emergency Hydraulic Repair | Rogers Hydraulic, East Texas",
     metaDescription:
@@ -202,7 +201,7 @@ export const services: Service[] = [
     slug: "trailer-repair",
     name: "Trailer Repair",
     blurb:
-      "Dump trailers, wet kits, and trailer hydraulics repaired on-site when parts and access allow.",
+      "Dump trailers, wet kits, and trailer hydraulic issues handled when parts and access allow.",
     icon: "trailer",
     seoTitle: "Mobile Trailer & Hydraulic Trailer Repair | Rogers Hydraulic, East Texas",
     metaDescription:
@@ -264,7 +263,7 @@ export const services: Service[] = [
     slug: "preventative-maintenance",
     name: "Preventative Maintenance",
     blurb:
-      "Hose and hydraulic inspections that catch failures before they strand a machine in the field.",
+      "Hose and hydraulic inspections to catch failures before they stop the job.",
     icon: "shield",
     seoTitle: "Preventative Hydraulic Maintenance | Rogers Hydraulic, East Texas",
     metaDescription:
@@ -324,7 +323,7 @@ export const serviceBySlug = (slug: string) => services.find((s) => s.slug === s
 export const troubleshootingCard = {
   name: "Hydraulic Troubleshooting",
   blurb:
-    "System diagnosis for low pressure, weak function, and leaks — find the real problem, not just the symptom.",
+    "Find the cause of leaks, weak pressure, slow movement, or failed hydraulic function.",
   icon: "gauge" as const,
   href: "/services/equipment-field-service",
 };
