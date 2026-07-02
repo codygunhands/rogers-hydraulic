@@ -24,6 +24,9 @@ export type Service = {
   /** slugs of related services */
   related: string[];
   keywords: string[];
+  /** Optional photo (public path) + alt shown on the detail page */
+  image?: string;
+  imageAlt?: string;
 };
 
 export type Industry = {
@@ -40,6 +43,8 @@ export type Industry = {
   equipmentTypes: string[];
   faqs: FAQ[];
   keywords: string[];
+  image?: string;
+  imageAlt?: string;
 };
 
 export type ServiceArea = {

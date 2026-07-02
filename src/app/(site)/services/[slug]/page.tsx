@@ -12,6 +12,15 @@ import { JsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
+// Stock photo per service (temporary — replace with Rogers' own job photos).
+const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
+  "mobile-hydraulic-hose-repair": { src: "/photos/hydraulic-hose.jpg", alt: "Braided hydraulic hose and fittings on heavy equipment" },
+  "equipment-field-service": { src: "/photos/equipment-repair.jpg", alt: "Technician repairing a heavy equipment engine" },
+  "after-hours-repair": { src: "/photos/after-hours.jpg", alt: "Mechanic working on a machine after hours" },
+  "trailer-repair": { src: "/photos/service-truck.jpg", alt: "Mobile service truck with hose equipment" },
+  "preventative-maintenance": { src: "/photos/fittings.jpg", alt: "Hydraulic fittings, couplers and adapters" },
+};
+
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
@@ -74,7 +83,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             ))}
           </div>
           <ImagePlaceholder
-            label={`${service.name} — technician performing this work on equipment in the field.`}
+            src={SERVICE_IMAGES[service.slug]?.src}
+            label={SERVICE_IMAGES[service.slug]?.alt ?? `${service.name} in the field`}
             ratio="4 / 3"
           />
         </div>

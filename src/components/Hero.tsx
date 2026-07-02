@@ -32,12 +32,13 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Right: hero photo (the money shot) */}
+        {/* Right: hero photo */}
         <div>
           <ImagePlaceholder
-            label="Service truck at a jobsite — tailgate open, gear visible, heavy equipment in the background. Wide, golden-hour. (Hero shot)"
+            src="/photos/hero-field-service.jpg"
+            label="Field technician servicing heavy equipment on-site with tools and parts"
             ratio="4 / 3"
-            tag="Hero photo"
+            priority
           />
           <p className="mt-3 text-center font-heading text-sm font-semibold uppercase tracking-widest text-hivis">
             Built for contractors, ranchers, public works &amp; operators

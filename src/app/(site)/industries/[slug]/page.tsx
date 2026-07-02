@@ -13,6 +13,14 @@ import { JsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
+// Stock photo per industry (temporary — replace with real job photos).
+const INDUSTRY_IMAGES: Record<string, { src: string; alt: string }> = {
+  "ranching-agriculture": { src: "/photos/tractor-ag.jpg", alt: "Tractor working an agricultural field" },
+  "construction-excavation": { src: "/photos/excavation.jpg", alt: "Excavator moving dirt on a jobsite" },
+  "municipal-public-works": { src: "/photos/backhoe-municipal.jpg", alt: "Backhoe loader used for public-works" },
+  "trucking-trailers": { src: "/photos/service-truck.jpg", alt: "Service truck with hydraulic equipment" },
+};
+
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
 }
@@ -64,7 +72,8 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
           <ImagePlaceholder
-            label={`${industry.name}: a machine from this work being serviced on-site in the field.`}
+            src={INDUSTRY_IMAGES[industry.slug]?.src}
+            label={INDUSTRY_IMAGES[industry.slug]?.alt ?? `${industry.name} equipment serviced on-site`}
             ratio="4 / 3"
           />
         </div>

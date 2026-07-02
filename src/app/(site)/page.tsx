@@ -68,7 +68,8 @@ export default function HomePage() {
             </p>
           </div>
           <ImagePlaceholder
-            label="Technician crimping a hydraulic hose on the truck-mounted crimper — hands + machine, tight focus. (Proof-of-capability)"
+            src="/photos/hydraulic-hose.jpg"
+            label="Braided hydraulic hose and fittings on heavy equipment"
             ratio="4 / 3"
           />
         </div>
