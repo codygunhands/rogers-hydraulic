@@ -34,24 +34,12 @@ const magick = has("magick") ? "magick" : has("convert") ? "convert" : null;
 
 const GRAPHITE_900 = "#14181C";
 
-/** Maskable icon: badge on a full graphite field (safe-zone padding built in). */
-const MASKABLE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" fill="${GRAPHITE_900}"/>
-  <g transform="translate(14,14) scale(0.72)">
-    <rect x="4" y="4" width="92" height="92" rx="15" fill="${GRAPHITE_900}" stroke="#D3FF00" stroke-width="4.5"/>
-    <g fill="#D3FF00">
-      <rect x="25" y="22" width="12" height="56"/>
-      <rect x="25" y="22" width="34" height="12"/>
-      <rect x="47" y="22" width="12" height="34"/>
-      <rect x="25" y="44" width="34" height="12"/>
-      <polygon points="39,54 51,54 67,78 55,78"/>
-      <polygon points="74,70 68.5,60.5 57.5,60.5 52,70 57.5,79.5 68.5,79.5"/>
-    </g>
-    <circle cx="63" cy="70" r="4.2" fill="${GRAPHITE_900}"/>
-  </g>
-</svg>`;
+// favicon.svg + icon-maskable.svg are produced by generate-brand-svgs.mjs.
 const maskablePath = join(PUBLIC, "icon-maskable.svg");
-writeFileSync(maskablePath, MASKABLE.trim() + "\n");
+if (!existsSync(maskablePath)) {
+  console.error("Missing public/icon-maskable.svg — run `npm run brand:svg` first.");
+  process.exit(1);
+}
 
 function png(src, out, size, bg) {
   const args = ["-w", String(size), "-h", String(size)];

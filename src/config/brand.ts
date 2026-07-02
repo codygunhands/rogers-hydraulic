@@ -47,10 +47,9 @@ export const roles = {
 } as const;
 
 export const fonts = {
-  heading: "var(--font-barlow)", // Barlow Condensed — condensed industrial display
+  heading: "var(--font-oswald)", // Oswald — industrial display / headings / logo
   body: "var(--font-inter)", // Inter — clean UI/body
-  headingStack:
-    "var(--font-barlow), 'Barlow Condensed', 'Oswald', system-ui, sans-serif",
+  headingStack: "var(--font-oswald), 'Oswald', system-ui, sans-serif",
   bodyStack: "var(--font-inter), Inter, system-ui, sans-serif",
 } as const;
 

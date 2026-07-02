@@ -25,8 +25,9 @@ const config: Config = {
       },
       fontFamily: {
         // Provided via next/font CSS variables in layout.tsx
-        heading: ["var(--font-barlow)", "system-ui", "sans-serif"],
-        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        heading: ["var(--font-oswald)", "'Oswald'", "system-ui", "sans-serif"],
+        label: ["var(--font-oswald)", "'Oswald'", "system-ui", "sans-serif"],
+        body: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         stencil: "0.02em",

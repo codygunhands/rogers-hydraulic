@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Inter } from "next/font/google";
+import { Oswald, Inter } from "next/font/google";
 import { siteMetadataBase } from "@/config/seo";
 import { tracking, trackingEnabled } from "@/config/tracking";
 import "./globals.css";
 
-const barlow = Barlow_Condensed({
+// Oswald = industrial display / headings / logo. Inter = body / UI.
+const oswald = Oswald({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-barlow",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-oswald",
   display: "swap",
 });
 
@@ -46,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${barlow.variable} ${inter.variable}`}>
+    <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
       <body className="min-h-dvh bg-graphite text-smoke antialiased">
         {children}
       </body>

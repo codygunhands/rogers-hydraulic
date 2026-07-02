@@ -1,15 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" fill="#14181C"/>
-  <g transform="translate(14,14) scale(0.72)">
-    <rect x="4" y="4" width="92" height="92" rx="15" fill="#14181C" stroke="#D3FF00" stroke-width="4.5"/>
-    <g fill="#D3FF00">
-      <rect x="25" y="22" width="12" height="56"/>
-      <rect x="25" y="22" width="34" height="12"/>
-      <rect x="47" y="22" width="12" height="34"/>
-      <rect x="25" y="44" width="34" height="12"/>
-      <polygon points="39,54 51,54 67,78 55,78"/>
-      <polygon points="74,70 68.5,60.5 57.5,60.5 52,70 57.5,79.5 68.5,79.5"/>
-    </g>
-    <circle cx="63" cy="70" r="4.2" fill="#14181C"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#14181C"/>
+  <g transform="translate(223,223) scale(0.66)">
+  
+  <rect x="6" y="6" width="88" height="88" rx="10" fill="none" stroke="#D3FF00" stroke-width="5.5"/><path d="M26.07 72.78L14.97 72.78L14.97 22.56L28.80 22.56Q33.88 22.56 37.60 23.68Q41.32 24.80 43.40 27.68Q45.47 30.56 45.47 35.83Q45.47 38.93 44.98 41.35Q44.48 43.77 43.15 45.54Q41.82 47.30 39.34 48.48L46.22 72.78L34.75 72.78L29.23 50.28L26.07 50.28L26.07 72.78M26.07 30L26.07 43.89L29.17 43.89Q31.52 43.89 32.83 43.06Q34.13 42.22 34.66 40.64Q35.18 39.06 35.18 36.82Q35.18 33.60 34 31.80Q32.83 30 29.66 30" fill="#F4F4F1"/><path d="M65.93 72.78L54.84 72.78L54.84 22.56L65.93 22.56L65.93 42.90L73.75 42.90L73.75 22.56L84.84 22.56L84.84 72.78L73.75 72.78L73.75 50.84L65.93 50.84" fill="#D3FF00"/>
+</g>
 </svg>

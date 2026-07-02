@@ -33,14 +33,17 @@ bin, and an invoice.
 
 ## Logo
 
-- **System:** stencil-block wordmark + hose-coupling monogram badge.
-- **Badge:** a blocky stencil **R** whose leg ends in a hex hydraulic coupling
-  nut. Font-independent vector; doubles as favicon and app icon.
-- **Components:** `src/components/LogoTextLockup.tsx`, `src/components/brand/CouplingBadge.tsx`.
-- **Files:** `public/brand/logo/*.svg` (outlined — no font dependency; safe to
-  hand to a sign shop). Regenerate with `npm run brand:svg`.
-- **Clear space:** minimum = the height of the coupling badge on all sides.
-- **Minimum size:** badge reads down to 16px (favicon).
+- **System:** two-tone wordmark knocked out of a graphite block with a hi-vis
+  keyline — industrial tool-brand language (think Hilti / DeWalt).
+- **Wordmark:** **ROGERS** (white) + **HYDRAULIC** (lime) in Oswald Bold, all caps.
+- **Sub-line:** **& EQUIPMENT SERVICES** in Oswald Regular, tracked, below the block.
+- **Icon:** **RH** monogram (R white, H lime) in a lime-keyline block — favicon / avatar.
+- **Component:** `src/components/LogoTextLockup.tsx` (layouts: horizontal, stacked,
+  wordmark, icon; themes: dark, light, mono-white, mono-black).
+- **Files:** `public/brand/logo/*.svg` (outlined — no font dependency; safe to hand
+  to a sign shop). Regenerate with `npm run brand:svg`; OG card with `npm run brand:og`.
+- **Clear space:** minimum = the block's keyline-to-cap height on all sides.
+- **Minimum size:** the RH icon reads down to 16px (favicon).
 
 ---
 
@@ -65,12 +68,12 @@ legible.
 
 ## Typography
 
-- **Display / headings:** Barlow Condensed (600 / 700 / 800), UPPERCASE for
-  display. Fallback: Oswald.
+- **Display / headings / logo:** Oswald — 700 (logo & headings), 500 (eyebrows/labels),
+  400 (logo sub-line). UPPERCASE for display.
 - **Body / UI:** Inter (400–700).
-- **Numerals** (phone): same condensed family — critical for truck read distance.
+- **Numerals** (phone): Oswald — critical for truck read distance.
 
-Wired via `next/font` in `src/app/layout.tsx` (`--font-barlow`, `--font-inter`).
+Wired via `next/font` in `src/app/layout.tsx` (`--font-oswald`, `--font-inter`).
 
 ---
 

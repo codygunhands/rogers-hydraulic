@@ -1,281 +1,158 @@
 /**
- * Generates the standalone brand SVG assets in public/brand/logo/ (+ favicon.svg,
- * icon.svg) from a single source of geometry — the same coupling-monogram used by
- * src/components/brand/CouplingBadge.tsx. Run: `npm run brand:svg`.
+ * Generates the Rogers Hydraulic logo assets — the industrial "block" mark:
+ * ROGERS (white) + HYDRAULIC (lime) knocked out of a graphite block with a
+ * hi-vis keyline, "& EQUIPMENT SERVICES" (Oswald Regular, tracked) below.
  *
- * Keep the geometry here in sync with CouplingBadge.tsx.
+ * Text is OUTLINED (Oswald Bold + Regular) so files carry no font dependency.
+ * Run: `npm run brand:svg`. Fonts live in scripts/fonts/ (see README).
  */
 import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import opentype from "opentype.js";
 
-const loadFont = (p) => {
-  const buf = readFileSync(p);
-  return opentype.parse(buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength));
-};
-
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const LOGO_DIR = join(ROOT, "public", "brand", "logo");
-const PUBLIC_DIR = join(ROOT, "public");
-mkdirSync(LOGO_DIR, { recursive: true });
+const PUBLIC = join(ROOT, "public");
+const LOGO = join(PUBLIC, "brand", "logo");
+mkdirSync(LOGO, { recursive: true });
 
-// Load Barlow Condensed and outline text → vector paths so standalone logo
-// files carry NO font dependency (portable to any renderer, no clipping).
-const fontExtraBold = loadFont(join(ROOT, "scripts", "fonts", "BarlowCondensed-ExtraBold.ttf"));
-const fontSemiBold = loadFont(join(ROOT, "scripts", "fonts", "BarlowCondensed-SemiBold.ttf"));
-
-/**
- * Render a string as an SVG <path> at a given baseline, tracked to `tracking`
- * (em) between glyphs. Returns { d, width } so callers can center/lay out.
- */
-function textPath(font, text, { x = 0, y = 0, fontSize, tracking = 0, fill }) {
-  const scale = fontSize / font.unitsPerEm;
-  const trackPx = tracking * fontSize;
-  let cursor = x;
-  let d = "";
-  for (const ch of text) {
-    const glyph = font.charToGlyph(ch);
-    const gp = glyph.getPath(cursor, y, fontSize);
-    d += gp.toPathData(2) + " ";
-    cursor += glyph.advanceWidth * scale + trackPx;
-  }
-  const width = cursor - x - (text.length ? trackPx : 0);
-  return { path: `<path d="${d.trim()}" fill="${fill}"/>`, width };
-}
+const loadFont = (p) => {
+  const b = readFileSync(join(ROOT, "scripts", "fonts", p));
+  return opentype.parse(b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength));
+};
+const oswB = loadFont("Oswald-Bold.ttf");
+const oswR = loadFont("Oswald-Regular.ttf");
 
 const C = {
   graphite: "#1E2329",
-  graphite900: "#14181C",
+  g900: "#14181C",
   hivis: "#D3FF00",
   smoke: "#F4F4F1",
-  steel: "#6B7280",
-  white: "#FFFFFF",
+  steel: "#AEB6BF",
+  steelD: "#6B7280",
 };
 
-/** The coupling-monogram mark, drawn inside a 100x100 space. */
-function mark({ fill, bore }) {
-  return `
-    <g fill="${fill}">
-      <rect x="25" y="22" width="12" height="56"/>
-      <rect x="25" y="22" width="34" height="12"/>
-      <rect x="47" y="22" width="12" height="34"/>
-      <rect x="25" y="44" width="34" height="12"/>
-      <polygon points="39,54 51,54 67,78 55,78"/>
-      <polygon points="74,70 68.5,60.5 57.5,60.5 52,70 57.5,79.5 68.5,79.5"/>
-    </g>
-    ${bore ? `<circle cx="63" cy="70" r="4.2" fill="${bore}"/>` : ""}`;
+function tp(font, text, { x, y, size, tr = 0, fill }) {
+  const s = size / font.unitsPerEm;
+  const t = tr * size;
+  let c = x;
+  let d = "";
+  for (const ch of text) {
+    const g = font.charToGlyph(ch);
+    d += g.getPath(c, y, size).toPathData(2) + " ";
+    c += g.advanceWidth * s + t;
+  }
+  return { path: `<path d="${d.trim()}" fill="${fill}"/>`, w: c - x - t };
 }
+const mw = (f, t, s, tr = 0) => tp(f, t, { x: 0, y: 0, size: s, tr, fill: "#000" }).w;
 
-/** Full badge (plate + mark) in a 100x100 viewBox. */
-function badge({ plate, stroke, fill, bore }) {
-  const plateEl =
-    plate && plate !== "none"
-      ? `<rect x="4" y="4" width="92" height="92" rx="15" fill="${plate}" stroke="${stroke}" stroke-width="4.5"/>`
-      : "";
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Rogers Hydraulic">
-  <title>Rogers Hydraulic coupling badge</title>
-  ${plateEl}${mark({ fill, bore })}
+const CAP = 0.735; // Oswald cap height as fraction of em
+const TR = 0.02;
+const SUB_TR = 0.27;
+
+/**
+ * Block lockup. opts: { block, keyline, rogers, hydraulic, sub, showSub, showBlock, twoTone }
+ */
+function blockLockup(S, opts) {
+  const M = Math.round(S * 0.35);
+  const k = Math.max(2, Math.round(S * 0.06));
+  const padX = S * 0.42;
+  const padY = S * 0.17;
+  const capH = S * CAP;
+
+  const rogW = mw(oswB, "ROGERS ", S, TR);
+  const hydW = mw(oswB, "HYDRAULIC", S, TR);
+  const wordW = rogW + hydW;
+
+  const blockX = M;
+  const blockY = M;
+  const blockW = wordW + padX * 2;
+  const blockH = capH + padY * 2;
+
+  const baseY = blockY + padY + capH; // baseline
+  const textX = blockX + padX;
+
+  const parts = [];
+  if (opts.showBlock) {
+    parts.push(
+      `<rect x="${blockX + k / 2}" y="${blockY + k / 2}" width="${blockW - k}" height="${blockH - k}" fill="${opts.block}" stroke="${opts.keyline}" stroke-width="${k}"/>`,
+    );
+  }
+  const rog = tp(oswB, "ROGERS ", { x: textX, y: baseY, size: S, tr: TR, fill: opts.rogers });
+  const hyd = tp(oswB, "HYDRAULIC", { x: textX + rogW, y: baseY, size: S, tr: TR, fill: opts.hydraulic });
+  parts.push(rog.path, hyd.path);
+
+  let totalH = blockY + blockH + M;
+  if (opts.showSub) {
+    const subS = S * 0.27;
+    const subCap = subS * CAP;
+    const subY = blockY + blockH + S * 0.22 + subCap;
+    parts.push(tp(oswR, "& EQUIPMENT SERVICES", { x: blockX + 2, y: subY, size: subS, tr: SUB_TR, fill: opts.sub }).path);
+    totalH = subY + subS * 0.3 + M;
+  }
+
+  const subW = opts.showSub ? mw(oswR, "& EQUIPMENT SERVICES", S * 0.27, SUB_TR) : 0;
+  const W = Math.ceil(Math.max(blockX + blockW, blockX + 2 + subW) + M);
+  const H = Math.ceil(totalH);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Rogers Hydraulic and Equipment Services">
+  <title>Rogers Hydraulic &amp; Equipment Services</title>
+  ${parts.join("\n  ")}
 </svg>`;
 }
 
-const BADGES = {
-  "badge-dark": { plate: C.graphite900, stroke: C.hivis, fill: C.hivis, bore: C.graphite900 },
-  "badge-light": { plate: C.smoke, stroke: C.graphite, fill: C.graphite, bore: C.hivis },
-  "badge-mono-black": { plate: "none", fill: C.graphite, bore: null },
-  "badge-mono-white": { plate: "none", fill: C.smoke, bore: null },
-  "badge-lime": { plate: "none", fill: C.hivis, bore: null },
+/** RH monogram in a keyline block — favicon / avatar. Square. */
+function iconRH(px = 100, { withBg = true } = {}) {
+  const S = px * 0.62;
+  const capH = S * CAP;
+  const rW = mw(oswB, "R", S);
+  const hW = mw(oswB, "H", S);
+  const gap = S * 0.04;
+  const totalW = rW + gap + hW;
+  const x0 = (px - totalW) / 2;
+  const baseY = px / 2 + capH / 2;
+  const bg = withBg ? `<rect width="${px}" height="${px}" rx="${px * 0.16}" fill="${C.g900}"/>` : "";
+  const key = `<rect x="${px * 0.06}" y="${px * 0.06}" width="${px * 0.88}" height="${px * 0.88}" rx="${px * 0.1}" fill="none" stroke="${C.hivis}" stroke-width="${px * 0.055}"/>`;
+  const r = tp(oswB, "R", { x: x0, y: baseY, size: S, fill: C.smoke });
+  const h = tp(oswB, "H", { x: x0 + rW + gap, y: baseY, size: S, fill: C.hivis });
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${px} ${px}" width="${px}" height="${px}" role="img" aria-label="Rogers Hydraulic">
+  <title>Rogers Hydraulic</title>
+  ${bg}${key}${r.path}${h.path}
+</svg>`;
+}
+
+/** Maskable PWA icon: RH on a full graphite field with safe-zone padding. */
+function iconMaskable(px = 512) {
+  const s = 0.66;
+  const core = iconRH(100, { withBg: false })
+    .replace(/^<svg[^>]*>/, "")
+    .replace(/<\/svg>$/, "")
+    .replace(/<title>.*?<\/title>/s, "");
+  const off = (px - 100 * s) / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${px} ${px}" width="${px}" height="${px}">
+  <rect width="${px}" height="${px}" fill="${C.g900}"/>
+  <g transform="translate(${off},${off}) scale(${s})">${core}</g>
+</svg>`;
+}
+
+const files = {
+  "logo/logo-block-dark.svg": blockLockup(100, { block: C.g900, keyline: C.hivis, rogers: C.smoke, hydraulic: C.hivis, sub: C.steel, showSub: true, showBlock: true }),
+  "logo/logo-block-light.svg": blockLockup(100, { block: C.g900, keyline: C.hivis, rogers: C.smoke, hydraulic: C.hivis, sub: C.steelD, showSub: true, showBlock: true }),
+  "logo/logo-mono-black.svg": blockLockup(100, { block: "none", keyline: C.graphite, rogers: C.graphite, hydraulic: C.graphite, sub: C.graphite, showSub: true, showBlock: true }),
+  "logo/logo-mono-white.svg": blockLockup(100, { block: "none", keyline: C.smoke, rogers: C.smoke, hydraulic: C.smoke, sub: C.smoke, showSub: true, showBlock: true }),
+  "logo/wordmark-dark.svg": blockLockup(100, { block: C.g900, keyline: C.hivis, rogers: C.smoke, hydraulic: C.hivis, sub: C.steel, showSub: false, showBlock: true }),
+  "logo/icon-rh.svg": iconRH(120),
+  "../favicon.svg": iconRH(64),
+  "../icon.svg": iconRH(120),
+  "../icon-maskable.svg": iconMaskable(512),
+  // OG image (og/og-default.png) is generated separately from scripts/og-template.html
+  // via Chrome (npm run brand:og) — reliable multi-line font rendering.
 };
 
-const plateOf = (spec, x = 0, y = 0) =>
-  spec.plate && spec.plate !== "none"
-    ? `<rect x="${x}" y="${y}" width="100" height="100" rx="15" fill="${spec.plate}" stroke="${spec.stroke}" stroke-width="4.5"/>`
-    : "";
-
-/** Outlined wordmark block, top-left origin at (x,y). Returns svg + measured width. */
-function wordmarkBlock({ x, y, primary, secondary, rule, primarySize = 64 }) {
-  const secSize = 20;
-  const p1 = textPath(fontExtraBold, "ROGERS HYDRAULIC", {
-    x,
-    y: y + primarySize,
-    fontSize: primarySize,
-    tracking: 0.005,
-    fill: primary,
-  });
-  const p2 = textPath(fontSemiBold, "EQUIPMENT SERVICES", {
-    x: x + 1,
-    y: y + primarySize + 26,
-    fontSize: secSize,
-    tracking: 0.34,
-    fill: secondary,
-  });
-  const svg = `${p1.path}
-    ${p2.path}
-    <rect x="${x + 1}" y="${y + primarySize + 36}" width="58" height="4" rx="2" fill="${rule}"/>`;
-  return { svg, width: Math.max(p1.width, p2.width) };
-}
-
-/** Horizontal lockup: badge + outlined wordmark. */
-function lockupHorizontalClean({ badgeSpec, primary, secondary, rule }) {
-  const wm = wordmarkBlock({ x: 134, y: 12, primary, secondary, rule });
-  const w = Math.ceil(134 + wm.width + 12);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} 130" role="img" aria-label="Rogers Hydraulic and Equipment Services">
-  <title>Rogers Hydraulic &amp; Equipment Services</title>
-  <g transform="translate(10,15)">${plateOf(badgeSpec)}${mark({ fill: badgeSpec.fill, bore: badgeSpec.bore })}</g>
-  ${wm.svg}
-</svg>`;
-}
-
-/** Stacked lockup: badge centered above outlined wordmark. */
-function lockupStacked({ badgeSpec, primary, secondary, rule }) {
-  const primarySize = 60;
-  const p1 = textPath(fontExtraBold, "ROGERS HYDRAULIC", {
-    x: 0,
-    y: 0,
-    fontSize: primarySize,
-    tracking: 0.005,
-    fill: primary,
-  });
-  const W = Math.ceil(Math.max(p1.width + 24, 300));
-  const cx = W / 2;
-  const badgeX = cx - 65; // badge 130 wide (scaled)
-  const t1 = textPath(fontExtraBold, "ROGERS HYDRAULIC", {
-    x: cx - p1.width / 2,
-    y: 184,
-    fontSize: primarySize,
-    tracking: 0.005,
-    fill: primary,
-  });
-  const p2 = textPath(fontSemiBold, "EQUIPMENT SERVICES", {
-    x: 0,
-    y: 0,
-    fontSize: 19,
-    tracking: 0.36,
-    fill: secondary,
-  });
-  const t2 = textPath(fontSemiBold, "EQUIPMENT SERVICES", {
-    x: cx - p2.width / 2,
-    y: 210,
-    fontSize: 19,
-    tracking: 0.36,
-    fill: secondary,
-  });
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} 264" role="img" aria-label="Rogers Hydraulic and Equipment Services">
-  <title>Rogers Hydraulic &amp; Equipment Services</title>
-  <g transform="translate(${badgeX},12) scale(1.3)">${plateOf(badgeSpec)}${mark({ fill: badgeSpec.fill, bore: badgeSpec.bore })}</g>
-  ${t1.path}
-  ${t2.path}
-  <rect x="${cx - 29}" y="224" width="58" height="4" rx="2" fill="${rule}"/>
-</svg>`;
-}
-
-/** Wordmark-only, outlined. */
-function wordmark({ primary, secondary, rule }) {
-  const wm = wordmarkBlock({ x: 6, y: 6, primary, secondary, rule, primarySize: 66 });
-  const w = Math.ceil(6 + wm.width + 8);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} 128" role="img" aria-label="Rogers Hydraulic and Equipment Services">
-  <title>Rogers Hydraulic &amp; Equipment Services</title>
-  ${wm.svg}
-</svg>`;
-}
-
-/** 1200x630 social share card (OpenGraph / Twitter). Outlined text. */
-function ogImage() {
-  const b = BADGES["badge-dark"];
-  const title = textPath(fontExtraBold, "ROGERS HYDRAULIC", {
-    x: 80,
-    y: 300,
-    fontSize: 108,
-    tracking: 0.005,
-    fill: C.smoke,
-  });
-  const sub = textPath(fontSemiBold, "EQUIPMENT SERVICES", {
-    x: 82,
-    y: 348,
-    fontSize: 34,
-    tracking: 0.34,
-    fill: "#AEB6BF",
-  });
-  const promise = textPath(fontExtraBold, "ON-SITE. AFTER HOURS. BACK TO WORK.", {
-    x: 80,
-    y: 448,
-    fontSize: 44,
-    tracking: 0.01,
-    fill: C.hivis,
-  });
-  const area = textPath(fontSemiBold, "Serving Madison County, Brazos County, and surrounding East Texas", {
-    x: 82,
-    y: 520,
-    fontSize: 27,
-    tracking: 0.02,
-    fill: C.smoke,
-  });
-  const services = textPath(fontSemiBold, "Mobile Hydraulic Hose Repair  ·  Field Equipment Service  ·  Trailer Repair  ·  After-Hours", {
-    x: 82,
-    y: 560,
-    fontSize: 21,
-    tracking: 0.02,
-    fill: "#AEB6BF",
-  });
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Rogers Hydraulic and Equipment Services">
-  <rect width="1200" height="630" fill="${C.graphite}"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <defs>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect x="0" y="0" width="1200" height="10" fill="${C.hivis}"/>
-  <g transform="translate(80,80) scale(1.25)">${plateOf(b)}${mark({ fill: b.fill, bore: b.bore })}</g>
-  ${title.path}
-  ${sub.path}
-  <rect x="82" y="380" width="120" height="6" rx="3" fill="${C.hivis}"/>
-  ${promise.path}
-  ${area.path}
-  ${services.path}
-  <rect x="0" y="620" width="1200" height="10" fill="${C.hivis}"/>
-</svg>`;
-}
-
-const files = {};
-
-// Badges
-for (const [name, spec] of Object.entries(BADGES)) {
-  files[`logo/${name}.svg`] = badge(spec);
-}
-
-// Social share card (SVG source; rasterized to PNG by generate-icons.mjs)
-files["../og/og-default.svg"] = ogImage();
-
-// Lockups
-// Secondary line on dark uses a lighter steel for legibility (steel #6B7280 is
-// only ~2.5:1 on graphite; #AEB6BF is ~5.5:1 while staying subordinate).
-const darkTheme = { primary: C.smoke, secondary: "#AEB6BF", rule: C.hivis };
-const lightTheme = { primary: C.graphite, secondary: C.steel, rule: C.hivis };
-const monoBlack = { primary: C.graphite, secondary: C.graphite, rule: C.graphite };
-const monoWhite = { primary: C.smoke, secondary: C.smoke, rule: C.smoke };
-
-files["logo/lockup-horizontal-dark.svg"] = lockupHorizontalClean({ badgeSpec: BADGES["badge-dark"], ...darkTheme });
-files["logo/lockup-horizontal-light.svg"] = lockupHorizontalClean({ badgeSpec: BADGES["badge-light"], ...lightTheme });
-files["logo/lockup-stacked-dark.svg"] = lockupStacked({ badgeSpec: BADGES["badge-dark"], ...darkTheme });
-files["logo/lockup-stacked-light.svg"] = lockupStacked({ badgeSpec: BADGES["badge-light"], ...lightTheme });
-files["logo/lockup-mono-black.svg"] = lockupHorizontalClean({ badgeSpec: BADGES["badge-mono-black"], ...monoBlack });
-files["logo/lockup-mono-white.svg"] = lockupHorizontalClean({ badgeSpec: BADGES["badge-mono-white"], ...monoWhite });
-files["logo/wordmark-dark.svg"] = wordmark(darkTheme);
-files["logo/wordmark-light.svg"] = wordmark(lightTheme);
-
-// Favicon + icon (badge-dark, optimized square)
-files["../favicon.svg"] = badge(BADGES["badge-dark"]);
-files["../icon.svg"] = badge(BADGES["badge-dark"]);
-
-let count = 0;
+let n = 0;
 for (const [rel, svg] of Object.entries(files)) {
-  const out = rel.startsWith("../")
-    ? join(PUBLIC_DIR, rel.slice(3))
-    : join(PUBLIC_DIR, "brand", rel);
+  const out = rel.startsWith("../") ? join(PUBLIC, rel.slice(3)) : join(PUBLIC, "brand", rel);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, svg.trim() + "\n", "utf8");
-  count++;
+  n++;
 }
-
-console.log(`✔ Generated ${count} brand SVG files.`);
+console.log(`✔ Generated ${n} logo assets (block wordmark, Oswald outlined).`);
