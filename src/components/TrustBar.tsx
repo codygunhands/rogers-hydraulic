@@ -6,7 +6,7 @@ export function TrustBar() {
   return (
     <div className="border-y border-graphite-600 bg-graphite-900">
       <div className="container-x">
-        <ul className="grid grid-cols-2 divide-graphite-600 md:grid-cols-5 md:divide-x">
+        <ul className="grid grid-cols-2 divide-graphite-600 md:grid-cols-3 md:divide-x lg:grid-cols-6">
           {trustItems.map((item) => (
             <li
               key={item.label}

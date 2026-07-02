@@ -22,7 +22,7 @@ export const trustItems: { label: string; icon: IconKey }[] = [
   { label: "Mobile Hose Repair", icon: "hose" },
   { label: "Cylinder Repair", icon: "cylinder" },
   { label: "Trailer Repair", icon: "trailer" },
-  { label: "Field Equipment Service", icon: "wrench" },
+  { label: "Field Service", icon: "wrench" },
   { label: "Fleet PM", icon: "shield" },
   { label: "After-Hours Calls", icon: "clock" },
 ];
