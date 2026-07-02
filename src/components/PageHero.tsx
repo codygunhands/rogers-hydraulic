@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { PhoneButton } from "./PhoneButton";
-import { CTAButton } from "./CTAButton";
+import { TextPhotosButton } from "./TextPhotosButton";
 import { Icon } from "./Icon";
 import type { IconKey } from "@/data/types";
 
@@ -45,12 +46,19 @@ export function PageHero({
         ) : null}
 
         {showCtas ? (
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <PhoneButton size="lg" />
-            <CTAButton href="/request-service" variant="secondary" size="lg">
-              Request Service
-            </CTAButton>
-          </div>
+          <>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <PhoneButton size="lg" className="w-full sm:w-auto" />
+              <TextPhotosButton size="lg" variant="secondary" className="w-full sm:w-auto" />
+            </div>
+            <p className="mt-3 font-body text-sm text-steel">
+              Or{" "}
+              <Link href="/request-service" className="text-hivis underline underline-offset-2 hover:text-hivis-dark">
+                request non-urgent service
+              </Link>
+              .
+            </p>
+          </>
         ) : null}
       </div>
     </section>
