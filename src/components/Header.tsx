@@ -5,8 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogoTextLockup } from "./LogoTextLockup";
 import { PhoneButton } from "./PhoneButton";
-import { Icon } from "./Icon";
-import { business } from "@/config/business";
 
 const NAV = [
   { label: "Services", href: "/services" },
@@ -55,16 +53,8 @@ export function Header() {
           <PhoneButton />
         </div>
 
-        {/* Mobile actions: easy-tap Call + menu */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <a
-            href={business.phoneHref}
-            className="inline-flex h-11 items-center gap-2 rounded-sm bg-hivis px-4 font-heading text-base font-bold uppercase tracking-stencil text-graphite"
-            aria-label={`Call ${business.phone}`}
-          >
-            <Icon name="phone" size={18} />
-            Call
-          </a>
+        {/* Mobile: menu only. Calling is handled by the hero + sticky bottom bar. */}
+        <div className="flex items-center lg:hidden">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}

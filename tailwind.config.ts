@@ -18,7 +18,8 @@ const config: Config = {
           dark: "#B8E000",
         },
         smoke: "#F4F4F1",
-        steel: "#6B7280",
+        // brighter, more readable body/muted text (was #6B7280 — too dark on graphite)
+        steel: "#9AA3AE",
         amber: {
           DEFAULT: "#F79A1B",
         },

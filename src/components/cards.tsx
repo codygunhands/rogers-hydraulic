@@ -3,16 +3,16 @@ import { Icon } from "./Icon";
 import type { IconKey } from "@/data/types";
 
 const CARD =
-  "group flex h-full flex-col rounded-md border border-graphite-600 bg-graphite-700/50 p-6 transition-colors hover:border-hivis/70 focus-within:border-hivis";
+  "group relative flex h-full flex-col rounded-md border border-graphite-600 bg-graphite-700/40 p-5 transition-colors hover:border-hivis/60 focus-within:border-hivis";
 
+/** Subtle, secondary affordance — the whole card is the link. */
 function Arrow() {
   return (
     <span
       aria-hidden
-      className="mt-4 inline-flex items-center gap-1 font-heading text-sm font-bold uppercase tracking-stencil text-hivis"
+      className="mt-4 text-lg leading-none text-steel transition-all group-hover:translate-x-0.5 group-hover:text-hivis"
     >
-      Learn more
-      <span className="transition-transform group-hover:translate-x-0.5">→</span>
+      →
     </span>
   );
 }

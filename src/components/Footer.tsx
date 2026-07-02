@@ -107,11 +107,11 @@ export function Footer() {
       {/* Disclaimer + legal */}
       <div className="border-t border-graphite-600">
         <div className="container-x flex flex-col gap-3 py-6 md:flex-row md:items-center md:justify-between">
-          <p className="max-w-3xl font-body text-xs leading-relaxed text-graphite-500">
+          <p className="max-w-3xl font-body text-xs leading-relaxed text-steel/80">
             Availability, response time, and service capability vary by location, job type, parts
             availability, weather, and active call volume.
           </p>
-          <p className="font-body text-xs text-graphite-500">© {year} {business.legalName}</p>
+          <p className="font-body text-xs text-steel/80">© {year} {business.legalName}</p>
         </div>
       </div>
 

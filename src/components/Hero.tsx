@@ -34,8 +34,8 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Right: practical utility panel (no photo) */}
-        <div className="rounded-md border border-graphite-600 bg-graphite-900/70 p-6 sm:p-8">
+        {/* Right: practical utility panel (desktop only — keeps the mobile hero clean) */}
+        <div className="hidden rounded-md border border-graphite-600 bg-graphite-900/70 p-6 sm:p-8 lg:block">
           <p className="font-heading text-2xl font-bold uppercase leading-none tracking-stencil text-smoke sm:text-3xl">
             Call First. <span className="text-hivis">Text Photos.</span>
           </p>
