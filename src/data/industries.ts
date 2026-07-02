@@ -145,7 +145,7 @@ export const industries: Industry[] = [
   {
     slug: "trucking-trailers",
     name: "Trucking & Trailers",
-    blurb: "Dump trailers, wet kits, and work-truck hydraulics handled on the road or at the yard.",
+    blurb: "Dump trailers, wet kits, lights, brakes, and bearings handled on the road or at the yard.",
     icon: "truck",
     seoTitle: "Hydraulic Repair for Trucking & Trailers | Rogers Hydraulic, East Texas",
     metaDescription:
@@ -154,15 +154,16 @@ export const industries: Industry[] = [
     directAnswer:
       "Rogers Hydraulic services truck and trailer hydraulics across Madison County, Brazos County, and surrounding East Texas — dump trailers, wet kits, and work-truck hydraulic systems. When a hydraulic problem strands a load, we bring the repair to the trailer when parts and access allow.",
     description: [
-      "A trailer that will not dump or a wet kit that quits can strand a load and kill a day. We handle the hydraulic side of trucks and trailers — hoses, cylinders, fittings, and wet-kit plumbing — on the road or at the yard.",
-      "We stay in our lane: hydraulics. Structural, brake, and electrical trailer work is usually better with a dedicated trailer shop, and we will point you there when it is the right call.",
+      "A trailer that will not dump, a wet kit that quits, or dead lights on a loaded haul can strand a day. We handle both sides of trucks and trailers — the hydraulics (dump-bed cylinders, hoses, pumps, and solenoids) and the everyday running gear (lighting and wiring, brakes, wheel bearings, jacks, couplers, and safety chains) — on the road or at the yard.",
+      "Heavy frame welding, major structural repair, and full axle rebuilds are coordinated with a specialty shop so the fix is done right and stays inside our insured scope. Everything else, we can usually handle where the trailer sits.",
     ],
     commonJobs: [
       "Dump trailers that will not raise or lower",
-      "Leaking trailer hydraulic cylinders",
-      "Blown trailer hydraulic hoses",
+      "Dead or intermittent trailer lights and wiring faults",
+      "Trailer brakes not engaging or dragging",
+      "Worn wheel bearings, broken jacks, and couplers",
+      "Blown hydraulic hoses and leaking dump-bed cylinders",
       "Wet-kit and PTO hydraulic problems",
-      "Hydraulic leaks stranding a loaded trailer",
     ],
     equipmentTypes: [
       "Dump trailers",

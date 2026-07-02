@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata, faqSchema } from "@/config/seo";
 import { business } from "@/config/business";
-import { services, troubleshootingCard } from "@/data/services";
+import { services } from "@/data/services";
 import { serviceAreas } from "@/data/service-areas";
 import { homeFaqs } from "@/data/site";
 import { Hero } from "@/components/Hero";
@@ -28,10 +28,12 @@ export const metadata: Metadata = pageMetadata({
  * Deeper detail (problem, industries, capabilities) lives on the service/about pages.
  */
 export default function HomePage() {
-  const serviceCards = [
-    ...services.map((s) => ({ href: `/services/${s.slug}`, name: s.name, blurb: s.blurb, icon: s.icon })),
-    { href: troubleshootingCard.href, name: troubleshootingCard.name, blurb: troubleshootingCard.blurb, icon: troubleshootingCard.icon },
-  ];
+  const serviceCards = services.map((s) => ({
+    href: `/services/${s.slug}`,
+    name: s.name,
+    blurb: s.blurb,
+    icon: s.icon,
+  }));
 
   return (
     <>

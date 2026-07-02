@@ -11,19 +11,20 @@ export const benefits: { title: string; text: string; icon: IconKey }[] = [
 export const capabilities: { label: string; icon: IconKey }[] = [
   { label: "On-site hydraulic hose crimping & assembly", icon: "hose" },
   { label: "Common hose sizes, fittings & adapters (JIC, ORFS, NPT, and more)", icon: "check" },
-  { label: "Cylinders, couplers & hydraulic troubleshooting", icon: "gauge" },
+  { label: "Cylinder reseals, repacks & leak repair", icon: "cylinder" },
+  { label: "Trailer repair: hydraulics, lights, brakes, bearings & couplers", icon: "trailer" },
   { label: "Skid steers, excavators, tractors, dozers & attachments", icon: "excavator" },
-  { label: "Dump trailers, wet kits & trailer hydraulics", icon: "trailer" },
   { label: "After-hours & weekend calls accepted", icon: "clock" },
 ];
 
 /** Trust bar items shown under the hero. */
 export const trustItems: { label: string; icon: IconKey }[] = [
   { label: "Mobile Hose Repair", icon: "hose" },
-  { label: "Field Equipment Service", icon: "wrench" },
-  { label: "After-Hours Calls", icon: "clock" },
+  { label: "Cylinder Repair", icon: "cylinder" },
   { label: "Trailer Repair", icon: "trailer" },
-  { label: "Preventative Maintenance", icon: "shield" },
+  { label: "Field Equipment Service", icon: "wrench" },
+  { label: "Fleet PM", icon: "shield" },
+  { label: "After-Hours Calls", icon: "clock" },
 ];
 
 /** "How it works" — 3 steps. */
@@ -47,7 +48,7 @@ export const answerBoxes: { title: string; text: string; icon: IconKey }[] = [
   {
     title: "What we do",
     icon: "wrench",
-    text: "Mobile hydraulic hose repair, equipment field service, trailer repair, after-hours repair, and preventative maintenance — brought to the jobsite.",
+    text: "Mobile hydraulic hose repair, hydraulic cylinder repair, trailer repair, equipment field service, fleet preventative maintenance, and after-hours calls — brought to the jobsite.",
   },
   {
     title: "Where we work",

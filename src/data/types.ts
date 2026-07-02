@@ -91,6 +91,7 @@ export type IconKey =
   | "trailer"
   | "shield"
   | "gauge"
+  | "cylinder"
   | "truck"
   | "tractor"
   | "excavator"

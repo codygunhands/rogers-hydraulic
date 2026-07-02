@@ -61,7 +61,7 @@ export const services: Service[] = [
           "After-hours, weekend, and holiday calls are accepted and are priced differently than standard hours. Call for current availability and to confirm the service-call structure before we roll.",
       },
     ],
-    related: ["equipment-field-service", "after-hours-repair", "trailer-repair"],
+    related: ["hydraulic-cylinder-repair", "trailer-repair", "after-hours-repair"],
     keywords: [
       "mobile hydraulic hose repair Madisonville TX",
       "hydraulic hose repair Bryan TX",
@@ -72,10 +72,139 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "hydraulic-cylinder-repair",
+    name: "Hydraulic Cylinder Repair",
+    blurb: "Cylinder reseals, repacks, and leak repair — with heavy rebuilds coordinated out.",
+    icon: "cylinder",
+    seoTitle: "Hydraulic Cylinder Repair & Reseal | Rogers Hydraulic, East Texas",
+    metaDescription:
+      "Hydraulic cylinder repair, reseal, and repack across Madison County, Brazos County, and surrounding East Texas. Seal replacement, rod and barrel inspection, leak repair, remove and reinstall. Call for availability.",
+    h1: "Hydraulic Cylinder Repair",
+    directAnswer:
+      "Rogers Hydraulic repairs and reseals hydraulic cylinders across Madison County, Brazos County, and surrounding East Texas — seal replacement and repack, rod and barrel inspection, leak troubleshooting, and cylinder removal and reinstall. Straightforward reseals are handled directly; heavy rebuilds, rechrome, machining, and rod replacement are coordinated with a specialty shop so the repair holds.",
+    description: [
+      "A leaking or blown hydraulic cylinder drops a loader, sinks a dump bed, or stalls a boom. Many cylinders do not need to be replaced — they need new seals and a clean inspection. We disassemble the cylinder, identify the seals, inspect the rod and barrel, replace the seal kit, and reassemble it so it holds pressure again.",
+      "We stay honest about the line between a reseal and a rebuild. Reseals, repacks, and leak repair are our lane. When a rod is scored or bent, a barrel is damaged, or the job needs rechrome, machining, welding, or a rod replacement, we coordinate that specialty work rather than force a fix that will fail again — and we tell you the plan and the cost before it goes further.",
+    ],
+    problemsSolved: [
+      "Cylinders leaking down or losing pressure under load",
+      "Worn or blown rod and piston seals",
+      "Weeping gland nuts and end caps",
+      "A dump bed, loader, or boom that won't hold position",
+      "Scored rods or damaged barrels that need assessment",
+      "Deciding whether to reseal, rebuild, or replace a cylinder",
+    ],
+    equipmentTypes: [
+      "Loader, backhoe, and boom cylinders",
+      "Excavator bucket, arm, and blade cylinders",
+      "Dump trailer and dump-bed cylinders",
+      "Skid steer and attachment cylinders",
+      "Log splitters, presses, and shop cylinders",
+      "Outrigger and stabilizer cylinders",
+    ],
+    whatToExpect: [
+      "Tell us the machine, which cylinder, and the symptom — leaking, drifting, or dead.",
+      "We confirm availability and whether the cylinder can be pulled on-site or brought in.",
+      "We disassemble, inspect the rod and barrel, and identify the correct seal kit.",
+      "We reseal, repack, and reassemble when the rod and barrel are serviceable.",
+      "If it needs rechrome, machining, or a new rod, we coordinate that and quote it first.",
+    ],
+    faqs: [
+      {
+        question: "Do you reseal hydraulic cylinders?",
+        answer:
+          "Yes. Reseals and repacks are a core service — seal kit replacement, rod and barrel inspection, and reassembly. When the rod and barrel are serviceable, a reseal restores the cylinder without buying a new one.",
+      },
+      {
+        question: "Can you repair a cylinder with a scored or bent rod?",
+        answer:
+          "We inspect it and give you a straight answer. Light wear is often fine. A scored, pitted, or bent rod usually needs rechrome, machining, or replacement, which we coordinate with a specialty shop and quote before any work continues.",
+      },
+      {
+        question: "Do you pull the cylinder or do I bring it to you?",
+        answer:
+          "Either, depending on the machine and access. In many cases we can support removal and reinstall in the field; some cylinders are easier serviced off the machine. Call and we will work out the practical plan.",
+      },
+    ],
+    related: ["mobile-hydraulic-hose-repair", "trailer-repair", "preventative-maintenance"],
+    keywords: [
+      "hydraulic cylinder repair East Texas",
+      "hydraulic cylinder reseal Madisonville TX",
+      "cylinder repack Brazos County",
+      "dump trailer cylinder repair",
+      "loader cylinder reseal Bryan College Station",
+    ],
+  },
+  {
+    slug: "trailer-repair",
+    name: "Trailer Repair",
+    blurb: "Dump trailer hydraulics plus lights, wiring, brakes, bearings, jacks, and couplers.",
+    icon: "trailer",
+    seoTitle: "Mobile Trailer Repair — Hydraulic, Lights, Brakes & Bearings | Rogers Hydraulic",
+    metaDescription:
+      "Mobile trailer repair across Madison County, Brazos County, and surrounding East Texas. Dump trailer hydraulics, wiring and lights, brakes, bearings, jacks, couplers, and safety chains. Call for availability.",
+    h1: "Trailer Repair",
+    directAnswer:
+      "Rogers Hydraulic repairs trailers on-site across Madison County, Brazos County, and surrounding East Texas — dump trailer hydraulics (cylinders, hoses, pumps, and solenoids) plus lighting and wiring, brake troubleshooting, bearing service, jack and coupler replacement, and safety chains. Heavy structural welding and major axle rebuilds are coordinated with a specialty shop.",
+    description: [
+      "The customers who run hydraulic equipment also run trailers — dump trailers, equipment and gooseneck trailers, livestock trailers, and utility trailers — and trailer problems strand loads just as fast as a blown hose. We bring practical trailer repair to where the trailer sits.",
+      "That covers both sides of the trailer. On the hydraulic side: dump-bed cylinders, hoses, fittings, pumps, batteries, and solenoids that won't lift or lower. On the everyday side: lighting and wiring faults, brake troubleshooting, wheel bearing service, jack replacement, coupler and safety-chain repair, and decking. Heavy frame welding, major structural work, and full axle rebuilds are coordinated with a specialty shop so the repair is done right and stays inside our insured scope.",
+    ],
+    problemsSolved: [
+      "Dump trailers that won't raise or lower",
+      "Dead or intermittent trailer lights and wiring faults",
+      "Trailer brakes not engaging or dragging",
+      "Worn or failing wheel bearings",
+      "Broken jacks, couplers, and safety chains",
+      "Dump-trailer battery, pump, and solenoid problems",
+      "Blown or chafed trailer hydraulic hoses and leaking cylinders",
+    ],
+    equipmentTypes: [
+      "Dump trailers and hydraulic dump beds",
+      "Equipment, gooseneck, and lowboy trailers",
+      "Utility and cargo trailers",
+      "Livestock and stock trailers",
+      "Work trucks with wet kits and PTO hydraulics",
+      "Hydraulic tilt and ramp trailers",
+    ],
+    whatToExpect: [
+      "Tell us the trailer type, the problem, and where it is.",
+      "We confirm availability and what to have ready.",
+      "On-site, we troubleshoot the hydraulics, wiring, brakes, bearings, or running gear.",
+      "We repair on-site when parts and access allow, hydraulic or otherwise.",
+      "For heavy frame welding or major axle work, we coordinate a specialty shop.",
+    ],
+    faqs: [
+      {
+        question: "Do you repair dump trailer hydraulics on-site?",
+        answer:
+          "Yes, when parts and access allow. Rogers Hydraulic services dump-bed cylinders, hoses, fittings, pumps, batteries, and solenoids in the field across Madison County, Brazos County, and surrounding East Texas.",
+      },
+      {
+        question: "Do you fix trailer lights, brakes, and bearings too?",
+        answer:
+          "Yes. Trailer lighting and wiring repair, brake troubleshooting, wheel bearing service, jack and coupler replacement, and safety chains are all part of trailer repair. Heavy structural welding and major axle rebuilds are coordinated with a specialty shop.",
+      },
+      {
+        question: "Can you help with a wet kit on my work truck?",
+        answer:
+          "Yes. We troubleshoot and repair wet-kit and PTO-driven hydraulic problems on work trucks when parts and access allow. Call for current availability.",
+      },
+    ],
+    related: ["mobile-hydraulic-hose-repair", "hydraulic-cylinder-repair", "after-hours-repair"],
+    keywords: [
+      "mobile trailer repair East Texas",
+      "dump trailer repair Madisonville TX",
+      "trailer light and wiring repair Brazos County",
+      "trailer brake and bearing service Bryan College Station",
+      "trailer hydraulic hose repair",
+    ],
+  },
+  {
     slug: "equipment-field-service",
     name: "Equipment Field Service",
     blurb:
-      "Hydraulic leaks, weak function, fittings, cylinders, and machine issues checked at the jobsite.",
+      "Hydraulic leaks, weak function, fittings, and machine issues diagnosed at the jobsite.",
     icon: "wrench",
     seoTitle: "Equipment Field Service & Hydraulic Repair | Rogers Hydraulic, East Texas",
     metaDescription:
@@ -127,12 +256,76 @@ export const services: Service[] = [
           "Yes. If a repair requires a press, a controlled environment, or parts that must be sourced, we explain what is wrong and the safest next step rather than forcing an on-site fix that will not hold.",
       },
     ],
-    related: ["mobile-hydraulic-hose-repair", "after-hours-repair", "preventative-maintenance"],
+    related: ["mobile-hydraulic-hose-repair", "hydraulic-cylinder-repair", "preventative-maintenance"],
     keywords: [
       "equipment field service East Texas",
       "on-site hydraulic repair Madisonville TX",
       "hydraulic troubleshooting Bryan College Station",
       "mobile equipment repair Brazos County",
+    ],
+  },
+  {
+    slug: "preventative-maintenance",
+    name: "Fleet Preventative Maintenance",
+    blurb:
+      "Scheduled hydraulic inspections, hose tagging, and records that stop failures before they cost you.",
+    icon: "shield",
+    seoTitle: "Fleet Hydraulic Preventative Maintenance | Rogers Hydraulic, East Texas",
+    metaDescription:
+      "Fleet hydraulic preventative maintenance across Madison County, Brazos County, and surrounding East Texas. Hose inspections, hose tagging, machine-by-machine records, and planned replacement. Call to scope a PM plan.",
+    h1: "Fleet Preventative Maintenance",
+    directAnswer:
+      "Rogers Hydraulic runs fleet hydraulic preventative maintenance across Madison County, Brazos County, and surrounding East Texas — scheduled hose and hydraulic inspections, hose tagging, machine-by-machine records, condition reports, and planned replacement of high-risk hoses before they fail. PM turns surprise downtime into scheduled work and gives your fleet a clear hydraulic record.",
+    description: [
+      "The cheapest hose failure is the one that never happens in the field. Preventative maintenance means walking the hydraulic systems on your equipment, tagging and recording the hoses and fittings that are about to go, and replacing them on your schedule instead of during a job.",
+      "This is built for operations with several machines, repeat failures, or equipment that can't afford surprise downtime — ranches, contractors, county road departments, rental yards, and dump-trailer fleets. We inspect on a set interval, keep machine-by-machine hose records, flag what's high-risk, and give PM accounts priority when something does go down. We scope the plan around your equipment and how hard it runs.",
+    ],
+    problemsSolved: [
+      "Chafed, cracked, or aging hoses found before they blow",
+      "Weeping fittings and couplers caught early",
+      "Repeat failures on hard-run machines",
+      "Surprise downtime during hay season, a dirt job, or a haul",
+      "No clear record of hydraulic condition across a fleet",
+      "No planned budget for hose replacement",
+    ],
+    equipmentTypes: [
+      "Ranch and hay equipment fleets",
+      "Construction and excavation equipment",
+      "County and municipal public-works fleets",
+      "Rental-yard equipment",
+      "Dump-trailer and hauling fleets",
+      "Small industrial and shop equipment",
+    ],
+    whatToExpect: [
+      "Tell us about your equipment, how it runs, and past failures.",
+      "We scope a practical inspection interval for your operation.",
+      "We inspect, tag hoses, and record condition machine by machine.",
+      "We replace at-risk parts on your schedule, not mid-job.",
+      "PM accounts get priority response when something does go down.",
+    ],
+    faqs: [
+      {
+        question: "What does a fleet PM visit include?",
+        answer:
+          "A hydraulic and hose inspection across your machines, hose tagging, a machine-by-machine condition record, a recommended replacement list, and planned replacement of high-risk hoses on your schedule. We scope the interval around how hard the fleet runs.",
+      },
+      {
+        question: "Do you offer priority response for PM accounts?",
+        answer:
+          "Yes. PM accounts get priority when a machine does go down, because we already know your equipment and its hose history. Availability still varies with call volume and conditions.",
+      },
+      {
+        question: "Is preventative maintenance worth it for my equipment?",
+        answer:
+          "If a surprise hydraulic failure would cost you real downtime, catching worn hoses and fittings ahead of time usually pays off. It is most valuable for operations running several machines or hard-used equipment.",
+      },
+    ],
+    related: ["mobile-hydraulic-hose-repair", "equipment-field-service", "hydraulic-cylinder-repair"],
+    keywords: [
+      "fleet hydraulic preventative maintenance East Texas",
+      "hydraulic hose inspection Madisonville TX",
+      "hose tagging and records Brazos County",
+      "fleet hydraulic PM program Bryan College Station",
     ],
   },
   {
@@ -189,7 +382,7 @@ export const services: Service[] = [
           "Yes. After-hours, weekend, and holiday calls are priced differently than standard hours. We confirm the structure with you before we roll.",
       },
     ],
-    related: ["mobile-hydraulic-hose-repair", "equipment-field-service", "trailer-repair"],
+    related: ["mobile-hydraulic-hose-repair", "trailer-repair", "equipment-field-service"],
     keywords: [
       "after hours hydraulic repair East Texas",
       "emergency hydraulic hose repair Madisonville",
@@ -197,133 +390,6 @@ export const services: Service[] = [
       "emergency field service Bryan College Station",
     ],
   },
-  {
-    slug: "trailer-repair",
-    name: "Trailer Repair",
-    blurb:
-      "Dump trailers, wet kits, and trailer hydraulic issues handled when parts and access allow.",
-    icon: "trailer",
-    seoTitle: "Mobile Trailer & Hydraulic Trailer Repair | Rogers Hydraulic, East Texas",
-    metaDescription:
-      "Mobile trailer repair and trailer hydraulic service across Madison County, Brazos County, and surrounding East Texas. Dump trailers, wet kits, and hoses. Call for current availability.",
-    h1: "Trailer Repair",
-    directAnswer:
-      "Rogers Hydraulic repairs trailer hydraulic systems on-site across Madison County, Brazos County, and surrounding East Texas — dump trailer cylinders and hoses, wet-kit issues, and hydraulic leaks. When the correct parts and access are available, many trailer hydraulic repairs can be done in the field.",
-    description: [
-      "Trailer hydraulics take a beating. Dump beds that will not lift, leaking cylinders, blown hoses, and wet-kit problems on a work truck can strand a load or shut down a haul. We bring trailer hydraulic repair to where the trailer sits.",
-      "We focus on the hydraulic side of trailers — hoses, fittings, cylinders, and the plumbing that moves the load. Structural, axle, brake, and electrical work outside hydraulics may be better handled by a dedicated trailer shop, and we will point you the right way when that is the case.",
-    ],
-    problemsSolved: [
-      "Dump trailers that will not raise or lower",
-      "Leaking or damaged trailer hydraulic cylinders",
-      "Blown or chafed trailer hydraulic hoses",
-      "Wet-kit and PTO hydraulic problems on work trucks",
-      "Hydraulic leaks stranding a loaded trailer",
-    ],
-    equipmentTypes: [
-      "Dump trailers",
-      "Equipment and lowboy trailers with hydraulics",
-      "Work trucks with wet kits",
-      "PTO-driven hydraulic systems",
-      "Hydraulic tilt and ramp trailers",
-    ],
-    whatToExpect: [
-      "Tell us the trailer type, the hydraulic symptom, and where it is.",
-      "We confirm availability and what to have ready.",
-      "On-site, we check the cylinders, hoses, fittings, and plumbing.",
-      "We repair the hydraulic side on-site when parts and access allow.",
-      "For non-hydraulic trailer work, we point you to the right shop.",
-    ],
-    faqs: [
-      {
-        question: "Do you repair dump trailer hydraulics on-site?",
-        answer:
-          "Yes, when parts and access allow. Rogers Hydraulic services dump trailer cylinders, hoses, fittings, and plumbing in the field across Madison County, Brazos County, and surrounding East Texas.",
-      },
-      {
-        question: "Do you fix trailer brakes, axles, or lights?",
-        answer:
-          "We focus on the hydraulic side of trailers — hoses, cylinders, fittings, and wet-kit systems. Structural, axle, brake, or electrical work is usually better handled by a dedicated trailer shop, and we will tell you when that is the case.",
-      },
-      {
-        question: "Can you help with a wet kit on my work truck?",
-        answer:
-          "Yes. We troubleshoot and repair wet-kit and PTO-driven hydraulic problems on work trucks when parts and access allow. Call for current availability.",
-      },
-    ],
-    related: ["mobile-hydraulic-hose-repair", "equipment-field-service", "after-hours-repair"],
-    keywords: [
-      "mobile trailer repair East Texas",
-      "dump trailer hydraulic repair Madisonville",
-      "trailer hydraulic hose repair Brazos County",
-      "wet kit repair Bryan College Station",
-    ],
-  },
-  {
-    slug: "preventative-maintenance",
-    name: "Preventative Maintenance",
-    blurb:
-      "Hose and hydraulic inspections to catch failures before they stop the job.",
-    icon: "shield",
-    seoTitle: "Preventative Hydraulic Maintenance | Rogers Hydraulic, East Texas",
-    metaDescription:
-      "Preventative hydraulic and hose inspections for ranch, construction, and fleet equipment across Madison County, Brazos County, and surrounding East Texas. Call to discuss a PM plan.",
-    h1: "Preventative Maintenance",
-    directAnswer:
-      "Rogers Hydraulic offers preventative hydraulic and hose inspections across Madison County, Brazos County, and surrounding East Texas. Catching a chafed hose, weeping fitting, or worn coupler before it fails keeps equipment working and avoids emergency downtime. Call to discuss a maintenance plan for your equipment or fleet.",
-    description: [
-      "The cheapest hose failure is the one that never happens in the field. Preventative maintenance means walking the hydraulic systems on your equipment, finding the hoses and fittings that are about to go, and replacing them on your schedule instead of during a job.",
-      "This is a practical fit for operations with several machines, repeat failures, or equipment that cannot afford surprise downtime — ranches, contractors, fleets, and rental yards. We build the plan around your equipment and how hard it runs.",
-    ],
-    problemsSolved: [
-      "Chafed, cracked, or aging hoses found before they blow",
-      "Weeping fittings and couplers caught early",
-      "Repeat failures on hard-run machines",
-      "Surprise downtime during critical work",
-      "No clear record of hydraulic condition across a fleet",
-    ],
-    equipmentTypes: [
-      "Ranch and hay equipment fleets",
-      "Construction and excavation equipment",
-      "Municipal and public-works fleets",
-      "Rental-yard equipment",
-      "Trailers and wet-kit systems",
-    ],
-    whatToExpect: [
-      "Tell us about your equipment, how it runs, and past failures.",
-      "We scope a practical inspection interval for your operation.",
-      "We inspect hoses, fittings, couplers, and hydraulic condition.",
-      "We replace at-risk parts on your schedule, not mid-job.",
-      "You get a clear picture of what is worn and what to watch.",
-    ],
-    faqs: [
-      {
-        question: "Is preventative maintenance worth it for my equipment?",
-        answer:
-          "If a surprise hydraulic failure would cost you real downtime — during hay season, a dirt job, or a haul — then catching worn hoses and fittings ahead of time usually pays off. It is most valuable for operations running several machines or hard-used equipment.",
-      },
-      {
-        question: "Do you offer maintenance plans for fleets?",
-        answer:
-          "Yes. We can scope a preventative inspection interval around a fleet of equipment and repeat commercial accounts. Call to discuss what fits your operation.",
-      },
-    ],
-    related: ["equipment-field-service", "mobile-hydraulic-hose-repair", "trailer-repair"],
-    keywords: [
-      "preventative hydraulic maintenance East Texas",
-      "hydraulic hose inspection Madisonville",
-      "fleet hydraulic maintenance Brazos County",
-    ],
-  },
 ];
 
 export const serviceBySlug = (slug: string) => services.find((s) => s.slug === slug);
-
-/** Extra home-page card that routes into an existing service page. */
-export const troubleshootingCard = {
-  name: "Hydraulic Troubleshooting",
-  blurb:
-    "Find the cause of leaks, weak pressure, slow movement, or failed hydraulic function.",
-  icon: "gauge" as const,
-  href: "/services/equipment-field-service",
-};
