@@ -10,7 +10,7 @@ export function Hero() {
       {/* hazard accent line at top */}
       <div className="band-hazard h-1.5 w-full" aria-hidden />
       <div className="container-x grid gap-10 py-16 md:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div>
+        <div className="min-w-0">
           <p className="eyebrow">Mobile Field Service · {business.serviceAreaShort}</p>
           <h1 className="mt-4 font-heading text-[2rem] font-bold uppercase leading-[1] tracking-tight text-smoke sm:text-5xl sm:tracking-stencil lg:text-7xl">
             Blown Hydraulic Hose?

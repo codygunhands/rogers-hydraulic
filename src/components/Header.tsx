@@ -27,8 +27,10 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-graphite-600 bg-graphite-900/95 backdrop-blur supports-[backdrop-filter]:bg-graphite-900/80">
       <div className="container-x flex h-16 items-center justify-between gap-4">
-        <Link href="/" aria-label="Rogers Hydraulic — home" className="shrink-0">
-          <LogoTextLockup layout="horizontal" theme="dark" size={34} />
+        <Link href="/" aria-label="Rogers Hydraulic — home" className="flex shrink-0 items-center">
+          {/* compact RH mark on phones (guarantees room for the menu button); full wordmark on ≥md */}
+          <LogoTextLockup layout="icon" theme="dark" size={24} className="md:hidden" />
+          <LogoTextLockup layout="wordmark" theme="dark" size={30} className="hidden md:inline-flex" />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
@@ -56,7 +58,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-graphite-600 text-smoke lg:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-graphite-600 text-smoke lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}

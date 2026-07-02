@@ -40,6 +40,10 @@
   body {
     background-color: var(--color-graphite);
     color: var(--color-smoke);
+    /* safety net: contain stray horizontal overflow so phones never scroll
+       sideways or push the sticky header's menu button off-screen. `clip`
+       (not hidden) keeps position: sticky working. */
+    overflow-x: clip;
     font-family: var(--font-inter);
     font-feature-settings: "cv11", "ss01";
     text-rendering: optimizeLegibility;
