@@ -6,6 +6,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { AnswerBoxes } from "@/components/AnswerBoxes";
 import { EmergencyCTA } from "@/components/EmergencyCTA";
 import { JsonLd } from "@/components/JsonLd";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Rogers Hydraulic & Equipment Services",
@@ -53,23 +54,29 @@ export default function AboutPage() {
       />
 
       <section className="container-x py-14 md:py-16">
-        <div className="max-w-3xl space-y-5">
-          <p className="font-body text-lg leading-relaxed text-steel">
-            Equipment does not break on a schedule. A blown hydraulic hose, a leaking cylinder, a
-            trailer that will not dump, or a machine that quits in the field can stop a job and cost
-            real money in downtime. Rogers Hydraulic exists to get that equipment back to work.
-          </p>
-          <p className="font-body text-lg leading-relaxed text-steel">
-            We are a mobile field-service operation covering the Madison–Brazos corridor. Instead of
-            being a shop you haul to, we bring practical hydraulic and equipment repair to the
-            jobsite — for ranchers, contractors, municipalities, trailer operators, and industrial
-            customers across the area.
-          </p>
-          <p className="font-body text-lg leading-relaxed text-steel">
-            The approach is simple: show up, find the real problem, fix what can be fixed on-site
-            when parts and conditions allow, and give an honest plan when a job needs more. Call for
-            current availability.
-          </p>
+        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="space-y-5">
+            <p className="font-body text-lg leading-relaxed text-steel">
+              Equipment does not break on a schedule. A blown hydraulic hose, a leaking cylinder, a
+              trailer that will not dump, or a machine that quits in the field can stop a job and cost
+              real money in downtime. Rogers Hydraulic exists to get that equipment back to work.
+            </p>
+            <p className="font-body text-lg leading-relaxed text-steel">
+              We are a mobile field-service operation covering the Madison–Brazos corridor. Instead of
+              being a shop you haul to, we bring practical hydraulic and equipment repair to the
+              jobsite — for ranchers, contractors, municipalities, trailer operators, and industrial
+              customers across the area.
+            </p>
+            <p className="font-body text-lg leading-relaxed text-steel">
+              The approach is simple: show up, find the real problem, fix what can be fixed on-site
+              when parts and conditions allow, and give an honest plan when a job needs more. Call for
+              current availability.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <ImagePlaceholder label="Owner / lead technician beside the service truck, branded shirt — friendly, professional." ratio="4 / 5" tag="Owner photo" />
+            <ImagePlaceholder label="The Rogers Hydraulic service truck on an East Texas road / at a jobsite." ratio="16 / 9" tag="Truck photo" />
+          </div>
         </div>
       </section>
 

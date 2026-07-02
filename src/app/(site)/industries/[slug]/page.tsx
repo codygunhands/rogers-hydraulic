@@ -11,6 +11,7 @@ import { EmergencyCTA } from "@/components/EmergencyCTA";
 import { SectionHeader } from "@/components/SectionHeader";
 import { JsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -54,12 +55,18 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
       />
 
       <section className="container-x py-14 md:py-16">
-        <div className="max-w-3xl space-y-5">
-          {industry.description.map((p) => (
-            <p key={p} className="font-body text-lg leading-relaxed text-steel">
-              {p}
-            </p>
-          ))}
+        <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-5">
+            {industry.description.map((p) => (
+              <p key={p} className="font-body text-lg leading-relaxed text-steel">
+                {p}
+              </p>
+            ))}
+          </div>
+          <ImagePlaceholder
+            label={`${industry.name}: a machine from this work being serviced on-site in the field.`}
+            ratio="4 / 3"
+          />
         </div>
       </section>
 

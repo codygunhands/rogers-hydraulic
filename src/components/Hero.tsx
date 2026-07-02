@@ -1,6 +1,7 @@
 import { business } from "@/config/business";
 import { PhoneButton } from "./PhoneButton";
 import { CTAButton } from "./CTAButton";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 
 /** Home hero — the primary conversion surface. */
 export function Hero() {
@@ -31,29 +32,16 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Right: plain-spoken capability panel (no stock photo needed) */}
-        <div className="rounded-md border border-graphite-600 bg-graphite-900/70 p-6 sm:p-8">
-          <p className="font-heading text-xl font-bold uppercase tracking-wide text-smoke">
-            When equipment is down, every hour costs money.
+        {/* Right: hero photo (the money shot) */}
+        <div>
+          <ImagePlaceholder
+            label="Service truck at a jobsite — tailgate open, gear visible, heavy equipment in the background. Wide, golden-hour. (Hero shot)"
+            ratio="4 / 3"
+            tag="Hero photo"
+          />
+          <p className="mt-3 text-center font-heading text-sm font-semibold uppercase tracking-widest text-hivis">
+            Built for contractors, ranchers, public works &amp; operators
           </p>
-          <ul className="mt-5 space-y-3 font-body text-sm text-steel">
-            {[
-              "We bring hose repair to the jobsite — no hauling a dead machine to a shop.",
-              "Hydraulic troubleshooting, cylinders, fittings, and trailer hydraulics.",
-              "Emergency and after-hours calls accepted.",
-              "Honest about what can be fixed on-site and what needs a shop.",
-            ].map((line) => (
-              <li key={line} className="flex gap-3">
-                <span className="mt-1 h-1.5 w-4 shrink-0 rounded-sm bg-hivis" aria-hidden />
-                {line}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6 border-t border-graphite-600 pt-5">
-            <p className="font-heading text-sm font-semibold uppercase tracking-widest text-hivis">
-              Built for contractors, ranchers, public works &amp; operators
-            </p>
-          </div>
         </div>
       </div>
     </section>

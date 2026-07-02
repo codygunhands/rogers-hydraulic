@@ -10,6 +10,7 @@ import { EmergencyCTA } from "@/components/EmergencyCTA";
 import { SectionHeader } from "@/components/SectionHeader";
 import { JsonLd } from "@/components/JsonLd";
 import { Icon } from "@/components/Icon";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -64,12 +65,18 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
       {/* Description */}
       <section className="container-x py-14 md:py-16">
-        <div className="max-w-3xl space-y-5">
-          {service.description.map((p) => (
-            <p key={p} className="font-body text-lg leading-relaxed text-steel">
-              {p}
-            </p>
-          ))}
+        <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-5">
+            {service.description.map((p) => (
+              <p key={p} className="font-body text-lg leading-relaxed text-steel">
+                {p}
+              </p>
+            ))}
+          </div>
+          <ImagePlaceholder
+            label={`${service.name} — technician performing this work on equipment in the field.`}
+            ratio="4 / 3"
+          />
         </div>
       </section>
 

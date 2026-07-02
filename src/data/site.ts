@@ -1,5 +1,22 @@
 import type { FAQ, IconKey } from "./types";
 
+/** Value-prop triad shown near the hero (honest, unquantified). */
+export const benefits: { title: string; text: string; icon: IconKey }[] = [
+  { title: "We Come To You", text: "On-site repair at the jobsite — no loading, no hauling a dead machine to a shop.", icon: "truck" },
+  { title: "After-Hours Available", text: "Emergency and after-hours calls accepted. Call for current availability.", icon: "clock" },
+  { title: "No Tow Needed", text: "Most hose and field repairs happen where the machine sits, when parts and access allow.", icon: "wrench" },
+];
+
+/** Honest capability proof (no fabricated inventory/brands) — trust without tenure. */
+export const capabilities: { label: string; icon: IconKey }[] = [
+  { label: "On-site hydraulic hose crimping & assembly", icon: "hose" },
+  { label: "Common hose sizes, fittings & adapters (JIC, ORFS, NPT, and more)", icon: "check" },
+  { label: "Cylinders, couplers & hydraulic troubleshooting", icon: "gauge" },
+  { label: "Skid steers, excavators, tractors, dozers & attachments", icon: "excavator" },
+  { label: "Dump trailers, wet kits & trailer hydraulics", icon: "trailer" },
+  { label: "After-hours & weekend calls accepted", icon: "clock" },
+];
+
 /** Trust bar items shown under the hero. */
 export const trustItems: { label: string; icon: IconKey }[] = [
   { label: "Mobile Hose Repair", icon: "hose" },

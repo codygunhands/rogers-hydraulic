@@ -5,9 +5,10 @@ import { business } from "@/config/business";
 import { services, troubleshootingCard } from "@/data/services";
 import { industries, industrialOilfieldChip } from "@/data/industries";
 import { serviceAreas } from "@/data/service-areas";
-import { homeFaqs } from "@/data/site";
+import { homeFaqs, benefits, capabilities } from "@/data/site";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ServiceCard, IndustryCard, ServiceAreaCard } from "@/components/cards";
 import { ProcessSteps } from "@/components/ProcessSteps";
@@ -37,19 +38,39 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
 
+      {/* Benefit triad */}
+      <section className="container-x py-12 md:py-14">
+        <div className="grid gap-5 md:grid-cols-3">
+          {benefits.map((b) => (
+            <div key={b.title} className="flex gap-4 rounded-md border border-graphite-600 bg-graphite-700/40 p-6">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-graphite-900 text-hivis">
+                <Icon name={b.icon} size={24} />
+              </span>
+              <div>
+                <h3 className="font-heading text-lg font-bold uppercase leading-tight text-smoke">{b.title}</h3>
+                <p className="mt-1 font-body text-sm leading-relaxed text-steel">{b.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Problem section */}
-      <section className="container-x py-16 md:py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <SectionHeader
-            eyebrow="The problem"
-            title="When equipment is down, every hour costs money."
+      <section className="border-t border-graphite-600 bg-graphite-900/40">
+        <div className="container-x grid items-center gap-10 py-16 md:py-20 lg:grid-cols-2">
+          <div>
+            <SectionHeader eyebrow="The problem" title="When equipment is down, every hour costs money." />
+            <p className="mt-6 font-body text-lg leading-relaxed text-steel">
+              A failed hydraulic hose, leaking cylinder, broken trailer component, or disabled
+              machine can stop a job, delay a crew, or leave equipment stranded. Rogers Hydraulic
+              &amp; Equipment Services brings practical field repair directly to the site — so you
+              fix it where it sits and get back to work.
+            </p>
+          </div>
+          <ImagePlaceholder
+            label="Technician crimping a hydraulic hose on the truck-mounted crimper — hands + machine, tight focus. (Proof-of-capability)"
+            ratio="4 / 3"
           />
-          <p className="font-body text-lg leading-relaxed text-steel">
-            A failed hydraulic hose, leaking cylinder, broken trailer component, or disabled
-            machine can stop a job, delay a crew, or leave equipment stranded. Rogers Hydraulic
-            &amp; Equipment Services brings practical field repair directly to the site — so you
-            fix it where it sits and get back to work.
-          </p>
         </div>
       </section>
 
@@ -91,6 +112,27 @@ export default function HomePage() {
             <Icon name={industrialOilfieldChip.icon} size={18} />
           </span>
           Also supporting {industrialOilfieldChip.name.toLowerCase()}.
+        </div>
+      </section>
+
+      {/* Capabilities — honest trust proof */}
+      <section className="border-t border-graphite-600 bg-graphite-900/40">
+        <div className="container-x py-16 md:py-20">
+          <SectionHeader
+            eyebrow="What we bring"
+            title="A rolling hydraulic shop"
+            intro="No reviews to inflate and no years to exaggerate — just the capability we bring to the jobsite. Call to confirm we have what your machine needs before we roll."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((c) => (
+              <div key={c.label} className="flex items-center gap-3 rounded-md border border-graphite-600 bg-graphite-700/40 p-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-graphite-900 text-hivis">
+                  <Icon name={c.icon} size={22} />
+                </span>
+                <span className="font-body text-sm leading-snug text-smoke">{c.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
