@@ -71,13 +71,20 @@ export default function RequestServicePage() {
               </p>
               <a
                 href={business.phoneHref}
-                className="mt-2 flex items-center gap-2 font-heading text-2xl font-extrabold tracking-stencil text-hivis hover:text-hivis-dark"
+                className="mt-2 flex items-center gap-2 font-heading text-3xl font-extrabold tracking-stencil text-hivis hover:text-hivis-dark"
               >
-                <Icon name="phone" size={22} />
+                <Icon name="phone" size={24} />
                 {business.phone}
               </a>
+              <a
+                href={business.smsHref}
+                className="mt-3 inline-flex items-center gap-2 font-heading text-base font-semibold uppercase tracking-wide text-smoke hover:text-hivis"
+              >
+                <Icon name="message" size={18} />
+                Text Photos
+              </a>
               <p className="mt-3 font-body text-sm leading-relaxed text-steel">
-                Emergency and after-hours calls accepted. Call for current availability.
+                Emergency and after-hours calls accepted. Call or text for current availability.
               </p>
             </div>
           </aside>

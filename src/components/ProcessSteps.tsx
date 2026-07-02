@@ -3,7 +3,7 @@ import { processSteps } from "@/data/site";
 /** Numbered "How it works" steps with a hi-vis connector. */
 export function ProcessSteps() {
   return (
-    <ol className="grid gap-4 md:grid-cols-5">
+    <ol className="grid gap-4 sm:grid-cols-3">
       {processSteps.map((step, i) => (
         <li
           key={step.title}

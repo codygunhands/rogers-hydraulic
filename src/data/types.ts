@@ -97,5 +97,6 @@ export type IconKey =
   | "building"
   | "factory"
   | "phone"
+  | "message"
   | "check"
   | "pin";

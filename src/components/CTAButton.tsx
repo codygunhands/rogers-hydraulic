@@ -1,6 +1,7 @@
 import Link from "next/link";
 import * as React from "react";
 import { Icon } from "./Icon";
+import type { IconKey } from "@/data/types";
 
 type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
@@ -27,6 +28,8 @@ export interface CTAButtonProps {
   className?: string;
   /** Show a leading phone icon (for call CTAs). */
   withPhoneIcon?: boolean;
+  /** Optional leading icon (overrides withPhoneIcon). */
+  icon?: IconKey;
   "aria-label"?: string;
 }
 
@@ -37,18 +40,25 @@ export function CTAButton({
   size = "md",
   className,
   withPhoneIcon,
+  icon,
   ...rest
 }: CTAButtonProps) {
   const cls = `${BASE} ${VARIANTS[variant]} ${SIZES[size]} ${className ?? ""}`;
+  const leadingIcon = icon ?? (withPhoneIcon ? "phone" : undefined);
   const content = (
     <>
-      {withPhoneIcon ? <Icon name="phone" size={18} /> : null}
+      {leadingIcon ? <Icon name={leadingIcon} size={18} /> : null}
       {children}
     </>
   );
 
-  // tel:/mailto: use a native anchor; internal links use next/link.
-  if (href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("http")) {
+  // tel:/sms:/mailto: use a native anchor; internal links use next/link.
+  if (
+    href.startsWith("tel:") ||
+    href.startsWith("sms:") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("http")
+  ) {
     return (
       <a href={href} className={cls} {...rest}>
         {content}

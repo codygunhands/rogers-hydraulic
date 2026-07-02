@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { pageMetadata, breadcrumbSchema } from "@/config/seo";
 import { business } from "@/config/business";
+import { capabilities } from "@/data/site";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { AnswerBoxes } from "@/components/AnswerBoxes";
 import { EmergencyCTA } from "@/components/EmergencyCTA";
 import { JsonLd } from "@/components/JsonLd";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Rogers Hydraulic & Equipment Services",
@@ -54,42 +55,42 @@ export default function AboutPage() {
       />
 
       <section className="container-x py-14 md:py-16">
-        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="space-y-5">
-            <p className="font-body text-lg leading-relaxed text-steel">
-              Equipment does not break on a schedule. A blown hydraulic hose, a leaking cylinder, a
-              trailer that will not dump, or a machine that quits in the field can stop a job and cost
-              real money in downtime. Rogers Hydraulic exists to get that equipment back to work.
-            </p>
-            <p className="font-body text-lg leading-relaxed text-steel">
-              We are a mobile field-service operation covering the Madison–Brazos corridor. Instead of
-              being a shop you haul to, we bring practical hydraulic and equipment repair to the
-              jobsite — for ranchers, contractors, municipalities, trailer operators, and industrial
-              customers across the area.
-            </p>
-            <p className="font-body text-lg leading-relaxed text-steel">
-              The approach is simple: show up, find the real problem, fix what can be fixed on-site
-              when parts and conditions allow, and give an honest plan when a job needs more. Call for
-              current availability.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <ImagePlaceholder label="Owner / lead technician beside the service truck, branded shirt — friendly, professional." ratio="4 / 5" tag="Owner photo" />
-            <ImagePlaceholder label="The Rogers Hydraulic service truck on an East Texas road / at a jobsite." ratio="16 / 9" tag="Truck photo" />
-          </div>
+        <div className="max-w-3xl space-y-5">
+          <p className="font-body text-lg leading-relaxed text-steel">
+            <span className="font-semibold text-smoke">When equipment is down, every hour costs money.</span>{" "}
+            A blown hydraulic hose, leaking cylinder, trailer issue, or disabled machine can stop the
+            whole job. Rogers brings mobile hydraulic and equipment service to the site so you can get
+            back to work faster.
+          </p>
+          <p className="font-body text-lg leading-relaxed text-steel">
+            We are a mobile field-service operation covering the Madison–Brazos corridor. Instead of
+            being a shop you haul to, we bring practical hydraulic and equipment repair to the
+            jobsite — for ranchers, contractors, municipalities, trailer operators, and industrial
+            customers across the area.
+          </p>
+          <p className="font-body text-lg leading-relaxed text-steel">
+            The approach is simple: show up, find the real problem, fix what can be fixed on-site
+            when parts and conditions allow, and give an honest plan when a job needs more. Call for
+            current availability.
+          </p>
         </div>
       </section>
 
+      {/* What we bring */}
       <section className="border-t border-graphite-600 bg-graphite-900/40">
         <div className="container-x py-14 md:py-16">
-          <SectionHeader eyebrow="How we work" title="The way we run" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {VALUES.map((v) => (
-              <div key={v.title} className="rounded-md border border-graphite-600 bg-graphite-700/40 p-6">
-                <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-smoke">
-                  {v.title}
-                </h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-steel">{v.text}</p>
+          <SectionHeader
+            eyebrow="What we bring"
+            title="A field service setup built for hydraulic repair."
+            intro="We carry tools, hose equipment, fittings, adapters, and field-service gear for common hydraulic and equipment repairs. Call first so we can confirm the machine, problem, location, and likely parts needed before we roll."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((c) => (
+              <div key={c.label} className="flex items-center gap-3 rounded-md border border-graphite-600 bg-graphite-700/40 p-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-graphite-900 text-hivis">
+                  <Icon name={c.icon} size={22} />
+                </span>
+                <span className="font-body text-sm leading-snug text-smoke">{c.label}</span>
               </div>
             ))}
           </div>
@@ -97,9 +98,25 @@ export default function AboutPage() {
       </section>
 
       <section className="container-x py-14 md:py-16">
-        <SectionHeader eyebrow="The short version" title="What to know" />
-        <div className="mt-10">
-          <AnswerBoxes />
+        <SectionHeader eyebrow="How we work" title="The way we run" />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {VALUES.map((v) => (
+            <div key={v.title} className="rounded-md border border-graphite-600 bg-graphite-700/40 p-6">
+              <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-smoke">
+                {v.title}
+              </h3>
+              <p className="mt-2 font-body text-sm leading-relaxed text-steel">{v.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-graphite-600 bg-graphite-900/40">
+        <div className="container-x py-14 md:py-16">
+          <SectionHeader eyebrow="The short version" title="What to know" />
+          <div className="mt-10">
+            <AnswerBoxes />
+          </div>
         </div>
       </section>
 

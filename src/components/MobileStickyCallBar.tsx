@@ -12,17 +12,19 @@ export function MobileStickyCallBar() {
     >
       <a
         href={business.phoneHref}
-        className="flex items-center justify-center gap-2 bg-hivis py-3.5 font-heading text-base font-bold uppercase tracking-stencil text-graphite"
+        className="flex items-center justify-center gap-2 bg-hivis py-4 font-heading text-lg font-bold uppercase tracking-stencil text-graphite"
         aria-label={`Call ${displayNumber} now`}
       >
-        <Icon name="phone" size={18} />
+        <Icon name="phone" size={20} />
         Call Now
       </a>
       <a
-        href="/request-service"
-        className="flex items-center justify-center gap-2 py-3.5 font-heading text-base font-bold uppercase tracking-stencil text-smoke"
+        href={business.smsHref}
+        className="flex items-center justify-center gap-2 border-l border-graphite-600 py-4 font-heading text-lg font-bold uppercase tracking-stencil text-smoke"
+        aria-label="Text photos of your equipment"
       >
-        Request Service
+        <Icon name="message" size={20} />
+        Text Photos
       </a>
     </div>
   );

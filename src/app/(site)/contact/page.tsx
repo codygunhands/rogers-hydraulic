@@ -57,6 +57,23 @@ export default function ContactPage() {
             </a>
 
             <a
+              href={business.smsHref}
+              className="flex items-center gap-3 rounded-md border border-graphite-600 bg-graphite-900 p-5 transition-colors hover:border-hivis"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-graphite-700 text-hivis">
+                <Icon name="message" size={22} />
+              </span>
+              <span>
+                <span className="block font-heading text-xs uppercase tracking-widest text-steel">
+                  Text photos
+                </span>
+                <span className="block font-heading text-lg font-bold uppercase tracking-wide text-smoke">
+                  Text the machine &amp; hose
+                </span>
+              </span>
+            </a>
+
+            <a
               href={`mailto:${business.email}`}
               className="flex items-center gap-3 rounded-md border border-graphite-600 bg-graphite-900 p-5 transition-colors hover:border-hivis"
             >

@@ -1,10 +1,10 @@
 import type { FAQ, IconKey } from "./types";
 
-/** Value-prop triad shown near the hero (honest, unquantified). */
+/** Value-prop triad (honest, unquantified). */
 export const benefits: { title: string; text: string; icon: IconKey }[] = [
   { title: "We Come To You", text: "On-site repair at the jobsite — no loading, no hauling a dead machine to a shop.", icon: "truck" },
   { title: "After-Hours Available", text: "Emergency and after-hours calls accepted. Call for current availability.", icon: "clock" },
-  { title: "No Tow Needed", text: "Most hose and field repairs happen where the machine sits, when parts and access allow.", icon: "wrench" },
+  { title: "Fixed Where It Sits", text: "Many hose and field repairs can be handled where the machine sits, when parts, access, and conditions allow.", icon: "wrench" },
 ];
 
 /** Honest capability proof (no fabricated inventory/brands) — trust without tenure. */
@@ -26,27 +26,19 @@ export const trustItems: { label: string; icon: IconKey }[] = [
   { label: "Preventative Maintenance", icon: "shield" },
 ];
 
-/** "How it works" process steps. */
+/** "How it works" — 3 steps. */
 export const processSteps: { title: string; text: string }[] = [
   {
-    title: "Call or request service",
-    text: "Reach out by phone or the request form when equipment is down.",
+    title: "Call or Text Photos",
+    text: "Call first if equipment is down. Text photos of the machine, failed hose, fittings, and jobsite location if available.",
   },
   {
-    title: "Describe the machine and problem",
-    text: "Tell us the make, model, what failed, and where the jobsite is.",
+    title: "We Confirm and Roll",
+    text: "We confirm availability, location, access, and likely parts needs before dispatch.",
   },
   {
-    title: "We confirm availability and dispatch",
-    text: "We give you an honest read on availability and what to have ready.",
-  },
-  {
-    title: "We repair on-site when conditions allow",
-    text: "When the correct parts and access are available, we fix it where it sits.",
-  },
-  {
-    title: "You get back to work",
-    text: "The goal is uptime — the machine running and the crew moving again.",
+    title: "We Fix It Where It Sits",
+    text: "When parts and access allow, we repair on-site and get the equipment back to work.",
   },
 ];
 

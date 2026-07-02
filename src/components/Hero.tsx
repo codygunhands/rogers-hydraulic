@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { business } from "@/config/business";
 import { PhoneButton } from "./PhoneButton";
-import { CTAButton } from "./CTAButton";
+import { TextPhotosButton } from "./TextPhotosButton";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 
 /** Home hero — the primary conversion surface. */
@@ -20,15 +21,16 @@ export function Hero() {
             Mobile hydraulic hose repair, equipment field service, trailer repair, and
             after-hours repair across Madison County, Brazos County, and surrounding East Texas.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <PhoneButton size="lg" />
-            <CTAButton href="/request-service" variant="secondary" size="lg">
-              Request Service
-            </CTAButton>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <PhoneButton size="lg" className="w-full sm:w-auto" />
+            <TextPhotosButton size="lg" variant="secondary" className="w-full sm:w-auto" />
           </div>
-          <p className="mt-5 font-body text-sm text-steel">
-            <span className="font-semibold text-smoke">On-Site. After Hours. Back to Work.</span>{" "}
-            Call for current availability.
+          <p className="mt-4 font-body text-sm text-steel">
+            <span className="font-semibold text-smoke">On-Site. After Hours. Back to Work.</span> Or{" "}
+            <Link href="/request-service" className="text-hivis underline underline-offset-2 hover:text-hivis-dark">
+              request non-urgent service
+            </Link>
+            .
           </p>
         </div>
 

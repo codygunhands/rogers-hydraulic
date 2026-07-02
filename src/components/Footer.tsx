@@ -37,14 +37,21 @@ export function Footer() {
             </p>
             <a
               href={business.phoneHref}
-              className="mt-1 flex items-center gap-2 font-heading text-2xl font-bold tracking-stencil text-smoke hover:text-hivis"
+              className="mt-1 flex items-center gap-2 font-heading text-3xl font-bold tracking-stencil text-smoke hover:text-hivis"
             >
-              <Icon name="phone" size={20} />
+              <Icon name="phone" size={24} />
               {displayNumber}
             </a>
             <a
+              href={business.smsHref}
+              className="mt-2 flex items-center gap-2 font-heading text-base font-semibold uppercase tracking-wide text-hivis hover:text-hivis-dark"
+            >
+              <Icon name="message" size={18} />
+              Text Photos
+            </a>
+            <a
               href={`mailto:${business.email}`}
-              className="mt-2 block font-body text-sm text-steel hover:text-smoke"
+              className="mt-3 block font-body text-sm text-steel hover:text-smoke"
             >
               {business.email}
             </a>

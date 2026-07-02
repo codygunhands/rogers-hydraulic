@@ -17,6 +17,8 @@ export const business = {
   // Contact — REPLACE placeholders with live values
   phone: "936-000-0000",
   phoneHref: "tel:+19360000000",
+  // Text Photos — SMS deep link. Body is a starter message (support varies by OS).
+  smsHref: "sms:+19360000000",
   email: "service@rogershydraulic.com",
 
   // Domain / URLs — REPLACE before deploy

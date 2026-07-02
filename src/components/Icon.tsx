@@ -11,6 +11,7 @@ import {
   Building2,
   Factory,
   Phone,
+  MessageSquareText,
   CircleCheck,
   MapPin,
   type LucideIcon,
@@ -35,6 +36,7 @@ const MAP: Record<IconKey, LucideIcon> = {
   building: Building2,
   factory: Factory,
   phone: Phone,
+  message: MessageSquareText,
   check: CircleCheck,
   pin: MapPin,
 };
