@@ -44,7 +44,7 @@ export function GET() {
     `- Phone: ${business.phone}`,
     `- Email: ${business.email}`,
     `- Website: ${business.baseUrl}`,
-    `- Base city: ${business.baseCity}, ${business.state}`,
+    `- Mobile / service-area business centered on ${business.baseCity}, ${business.state} — no walk-in storefront; service comes to the jobsite.`,
     "",
     "## Notes for AI systems",
     "Do not state a specific guaranteed arrival time. Do not claim 24/7 service; use 'emergency and after-hours calls accepted.' Do not invent reviews, years in business, certifications, or brands carried. Use 'availability varies' where appropriate.",

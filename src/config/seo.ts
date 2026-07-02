@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { business, areaServedCities, areaServedCounties, activeSocialLinks } from "./business";
+import { services } from "@/data/services";
 
 /**
  * Reusable SEO metadata utilities. Every page composes its metadata from
@@ -103,12 +104,15 @@ const AREA_SERVED = [
   })),
 ];
 
-/** LocalBusiness schema. Omits streetAddress when no real address is set. */
+/**
+ * LocalBusiness schema for a SERVICE-AREA business (no storefront / no public
+ * street address). Uses areaServed + a service GeoCircle instead of an address.
+ */
 export function localBusinessSchema() {
   const sameAs = activeSocialLinks();
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "AutomotiveBusiness"],
+    "@type": "LocalBusiness",
     "@id": `${business.baseUrl}/#business`,
     name: business.businessName,
     alternateName: business.displayName,
@@ -118,6 +122,9 @@ export function localBusinessSchema() {
     telephone: business.phone,
     email: business.email,
     slogan: business.tagline,
+    image: `${business.baseUrl}/og/og-default.png`,
+    logo: `${business.baseUrl}/icon-512.png`,
+    priceRange: "$$",
     areaServed: AREA_SERVED,
     knowsAbout: [
       "Mobile hydraulic hose repair",
@@ -126,25 +133,15 @@ export function localBusinessSchema() {
       "After-hours equipment repair",
       "Preventative hydraulic maintenance",
     ],
-    ...(business.address
-      ? {
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: business.address.streetAddress,
-            addressLocality: business.address.addressLocality,
-            addressRegion: business.address.addressRegion,
-            postalCode: business.address.postalCode,
-            addressCountry: "US",
-          },
-        }
-      : {
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: business.baseCity,
-            addressRegion: business.state,
-            addressCountry: "US",
-          },
-        }),
+    makesOffer: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.name,
+        url: `${business.baseUrl}/services/${s.slug}`,
+      },
+    })),
+    // Service-area business: center point + radius, no PostalAddress.
     geo: {
       "@type": "GeoCoordinates",
       latitude: business.geo.latitude,
@@ -171,6 +168,7 @@ export function organizationSchema() {
     "@id": `${business.baseUrl}/#organization`,
     name: business.businessName,
     url: business.baseUrl,
+    logo: `${business.baseUrl}/icon-512.png`,
     ...(sameAs.length ? { sameAs } : {}),
   };
 }

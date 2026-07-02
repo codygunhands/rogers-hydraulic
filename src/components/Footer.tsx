@@ -55,9 +55,6 @@ export function Footer() {
             >
               {business.email}
             </a>
-            <p className="mt-1 font-body text-sm text-steel">
-              {business.baseCity}, {business.state}
-            </p>
           </div>
         </div>
 

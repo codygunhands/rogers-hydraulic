@@ -5,7 +5,6 @@ import { PageHero } from "@/components/PageHero";
 import { IndustryCard } from "@/components/cards";
 import { EmergencyCTA } from "@/components/EmergencyCTA";
 import { JsonLd } from "@/components/JsonLd";
-import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = pageMetadata({
   title: "Industries We Serve — Ranch, Construction, Municipal, Trailers",
@@ -34,16 +33,15 @@ export default function IndustriesIndex() {
       />
 
       <section className="container-x py-16 md:py-20">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((i) => (
             <IndustryCard key={i.slug} href={`/industries/${i.slug}`} name={i.name} blurb={i.blurb} icon={i.icon} />
           ))}
-        </div>
-        <div className="mt-6 flex items-center gap-2.5 font-body text-sm text-steel">
-          <span className="text-hivis" aria-hidden>
-            <Icon name={industrialOilfieldChip.icon} size={18} />
-          </span>
-          Also supporting {industrialOilfieldChip.name.toLowerCase()} across the corridor.
+          <IndustryCard
+            name={industrialOilfieldChip.name}
+            blurb={industrialOilfieldChip.blurb}
+            icon={industrialOilfieldChip.icon}
+          />
         </div>
       </section>
 

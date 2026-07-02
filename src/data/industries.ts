@@ -193,8 +193,9 @@ export const industries: Industry[] = [
 
 export const industryBySlug = (slug: string) => industries.find((i) => i.slug === slug);
 
-/** Extra home-page industry chip (no dedicated page). */
+/** Supported industry without its own page — rendered as a (non-linked) card. */
 export const industrialOilfieldChip = {
   name: "Industrial & Oilfield Support",
+  blurb: "Support equipment, hydraulic systems, and machinery for industrial and oilfield operations across the corridor.",
   icon: "factory" as const,
 };

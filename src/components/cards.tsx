@@ -48,23 +48,28 @@ export function IndustryCard({
   blurb,
   icon,
 }: {
-  href: string;
+  href?: string;
   name: string;
   blurb: string;
   icon: IconKey;
 }) {
-  return (
-    <Link href={href} className={CARD}>
+  const inner = (
+    <>
       <div className="flex items-center gap-3">
         <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-graphite-900 text-hivis">
           <Icon name={icon} size={24} />
         </span>
-        <h3 className="font-heading text-lg font-bold uppercase leading-tight text-smoke">
-          {name}
-        </h3>
+        <h3 className="font-heading text-lg font-bold uppercase leading-tight text-smoke">{name}</h3>
       </div>
       <p className="mt-3 flex-1 font-body text-sm leading-relaxed text-steel">{blurb}</p>
-      <Arrow />
+      {href ? <Arrow /> : null}
+    </>
+  );
+  // Non-linked card (e.g. a supported industry without its own page).
+  if (!href) return <div className={CARD}>{inner}</div>;
+  return (
+    <Link href={href} className={CARD}>
+      {inner}
     </Link>
   );
 }
@@ -79,17 +84,14 @@ export function ServiceAreaCard({
   county: string;
 }) {
   return (
-    <Link href={href} className={`${CARD} flex-row items-center gap-3`}>
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-graphite-900 text-hivis">
-        <Icon name="pin" size={20} />
-      </span>
+    <Link href={href} className={`${CARD} flex-row items-center justify-between gap-3`}>
       <span className="min-w-0">
         <span className="block font-heading text-lg font-bold uppercase leading-tight text-smoke">
           {city}, TX
         </span>
         <span className="block font-body text-xs text-steel">{county}</span>
       </span>
-      <span aria-hidden className="ml-auto text-hivis transition-transform group-hover:translate-x-0.5">
+      <span aria-hidden className="text-lg leading-none text-steel transition-all group-hover:translate-x-0.5 group-hover:text-hivis">
         →
       </span>
     </Link>
