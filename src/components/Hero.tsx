@@ -6,13 +6,13 @@ import { ImagePlaceholder } from "./ImagePlaceholder";
 /** Home hero — the primary conversion surface. */
 export function Hero() {
   return (
-    <section className="bg-plate relative overflow-hidden border-b border-graphite-600">
+    <section className="bg-plate relative border-b border-graphite-600">
       {/* hazard accent line at top */}
       <div className="band-hazard h-1.5 w-full" aria-hidden />
       <div className="container-x grid gap-10 py-16 md:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <p className="eyebrow">Mobile Field Service · {business.serviceAreaShort}</p>
-          <h1 className="mt-4 font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-stencil text-smoke sm:text-6xl lg:text-7xl">
+          <h1 className="mt-4 font-heading text-[2rem] font-bold uppercase leading-[1] tracking-tight text-smoke sm:text-5xl sm:tracking-stencil lg:text-7xl">
             Blown Hydraulic Hose?
             <span className="mt-2 block text-hivis">We Come To You.</span>
           </h1>

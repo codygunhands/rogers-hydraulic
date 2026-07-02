@@ -12,7 +12,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <JsonLd data={[localBusinessSchema(), websiteSchema(), organizationSchema()]} />
       <EmergencyStrip />
       <Header />
-      <main id="main">{children}</main>
+      <main id="main" className="overflow-x-clip">{children}</main>
       <Footer />
       <MobileStickyCallBar />
     </>
